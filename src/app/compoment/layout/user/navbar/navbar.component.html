@@ -2,15 +2,15 @@
 
 
   <div class="d-flex align-items-center justify-content-between">
-    <a href="index.html" class="logo d-flex align-items-center text-decoration-none">
-      <img src="assets/img/logo.png" alt="">
+    <a routerLink="/" class="logo d-flex align-items-center text-decoration-none">
+      <img src="../../../../../assets/img/logo.png" alt="">
       <span class="d-none d-lg-block">GuTrend</span>
     </a>
     <i class="bi bi-list toggle-sidebar-btn customMenuBtn"></i>
   </div><!-- End Logo -->
 
   <!--  Start select Nav-bar-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light customNavBar" >
+  <nav class="navbar navbar-expand-lg navbar-light bg-light customNavBar">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -46,7 +46,6 @@
     </form>
   </div><!-- End Search Bar -->
 
-
   <nav class="header-nav ms-auto">
     <ul class="d-flex align-items-center">
 
@@ -56,14 +55,15 @@
         </a>
       </li><!-- End Search Icon-->
 
-
+      <!-- Start Notification Nav -->
       <li class="nav-item dropdown">
-
+        <!-- Start Notification Icon -->
         <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
           <i class="bi bi-bell"></i>
           <span class="badge bg-primary badge-number">4</span>
         </a><!-- End Notification Icon -->
 
+        <!-- Start Notification Dropdown Items -->
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
           <li class="dropdown-header">
             You have 4 new notifications
@@ -128,17 +128,19 @@
             <a href="#">Show all notifications</a>
           </li>
 
-        </ul><!-- End Notification Dropdown Items -->
+        </ul> <!-- End Notification Dropdown Items -->
 
       </li><!-- End Notification Nav -->
 
+      <!-- Start Messages Nav -->
       <li class="nav-item dropdown">
-
+        <!-- Start Messages Icon -->
         <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
           <i class="bi bi-chat-left-text"></i>
           <span class="badge bg-success badge-number">3</span>
         </a><!-- End Messages Icon -->
 
+        <!-- Start Messages Dropdown Items -->
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
           <li class="dropdown-header">
             You have 3 new messages
@@ -150,7 +152,7 @@
 
           <li class="message-item">
             <a href="#" class="text-decoration-none">
-              <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
+              <img src="../../../../../assets/img/messages-1.jpg" alt="" class="rounded-circle">
               <div>
                 <h4>Maria Hudson</h4>
                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -164,7 +166,7 @@
 
           <li class="message-item">
             <a href="#" class="text-decoration-none">
-              <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
+              <img src="../../../../../assets/img/messages-2.jpg" alt="" class="rounded-circle">
               <div>
                 <h4>Anna Nelson</h4>
                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -178,7 +180,7 @@
 
           <li class="message-item">
             <a href="#" class="text-decoration-none">
-              <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
+              <img src="../../../../../assets/img/messages-3.jpg" alt="" class="rounded-circle">
               <div>
                 <h4>David Muldon</h4>
                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -198,70 +200,75 @@
 
       </li><!-- End Messages Nav -->
 
-      <!--      <li class="nav-item dropdown pe-3">-->
+      <!--            Start profile user-->
+      <li *ngIf="checkLogin" class="nav-item dropdown pe-3 " style="margin-right: 5px">
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+          <img src="{{avatar}}" alt="Profile" class="rounded-circle">
+          <span style="text-transform: capitalize " class="d-none d-md-block dropdown-toggle ps-2">{{name}}</span>
+        </a><!-- End Profile Iamge Icon -->
 
-      <!--        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">-->
-      <!--          <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">-->
-      <!--          <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>-->
-      <!--        </a>&lt;!&ndash; End Profile Iamge Icon &ndash;&gt;-->
 
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+          <li class="dropdown-header">
+            <h6 style="text-transform: capitalize">{{name}}</h6>
+            <span>Web Designer</span>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
-      <!--        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">-->
-      <!--          <li class="dropdown-header">-->
-      <!--            <h6>Kevin Anderson</h6>-->
-      <!--            <span>Web Designer</span>-->
-      <!--          </li>-->
-      <!--          <li>-->
-      <!--            <hr class="dropdown-divider">-->
-      <!--          </li>-->
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <i class="bi bi-person"></i>
+              <span>My Profile</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
-      <!--          <li>-->
-      <!--            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">-->
-      <!--              <i class="bi bi-person"></i>-->
-      <!--              <span>My Profile</span>-->
-      <!--            </a>-->
-      <!--          </li>-->
-      <!--          <li>-->
-      <!--            <hr class="dropdown-divider">-->
-      <!--          </li>-->
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <i class="bi bi-gear"></i>
+              <span>Account Settings</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
-      <!--          <li>-->
-      <!--            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">-->
-      <!--              <i class="bi bi-gear"></i>-->
-      <!--              <span>Account Settings</span>-->
-      <!--            </a>-->
-      <!--          </li>-->
-      <!--          <li>-->
-      <!--            <hr class="dropdown-divider">-->
-      <!--          </li>-->
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+              <i class="bi bi-question-circle"></i>
+              <span>Need Help?</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
-      <!--          <li>-->
-      <!--            <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">-->
-      <!--              <i class="bi bi-question-circle"></i>-->
-      <!--              <span>Need Help?</span>-->
-      <!--            </a>-->
-      <!--          </li>-->
-      <!--          <li>-->
-      <!--            <hr class="dropdown-divider">-->
-      <!--          </li>-->
+          <li style="cursor: pointer">
+            <a class="dropdown-item d-flex align-items-center" (click)="logOut()" >
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Sign Out</span>
+            </a>
+          </li>
 
-      <!--          <li>-->
-      <!--            <a class="dropdown-item d-flex align-items-center" href="#">-->
-      <!--              <i class="bi bi-box-arrow-right"></i>-->
-      <!--              <span>Sign Out</span>-->
-      <!--            </a>-->
-      <!--          </li>-->
+        </ul><!-- End Profile Dropdown Items -->
+      </li><!-- End Profile Nav -->
 
-      <!--        </ul>&lt;!&ndash; End Profile Dropdown Items &ndash;&gt;-->
-      <!--      </li>&lt;!&ndash; End Profile Nav &ndash;&gt;-->
-      <li class="nav-item" style="margin-right: 30px">
-        <a>
+      <!--      End profile user-->
+
+      <!-- Start Log in btn -->
+      <li *ngIf="!checkLogin" class="nav-item" style="margin-right: 30px">
+        <a routerLink="login">
           <div>
             <button class="custom-btn btn-3" style="width: 80px; height: 35px"><span
               style="color: #000000">Log in</span></button>
           </div>
-        </a><!-- End Log in btn -->
+        </a>
       </li>
+      <!-- End Log in btn -->
 
     </ul>
   </nav><!-- End Icons Navigation -->
@@ -274,7 +281,7 @@
   <ul class="sidebar-nav" id="sidebar-nav">
 
     <li class="nav-item">
-      <a class="nav-link " href="index.html">
+      <a class="nav-link " href="../../../../../index.html">
         <i class="bi bi-grid"></i>
         <span>Dashboard</span>
       </a>
