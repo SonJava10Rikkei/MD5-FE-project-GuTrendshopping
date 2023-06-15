@@ -1,4 +1,4 @@
-<main>
+<main class="backgroundLogin">
   <div class="container">
     <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
       <div class="container">
@@ -7,11 +7,16 @@
             <div class="card mb-3">
               <div class="card-body">
                 <div class="pt-4 pb-2">
-                  <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5> <br>
+                  <h5 class="card-title text-center pb-0 fs-4 " style="margin: 0;color: blue; font-weight: 700">Login to
+                    Your Account</h5> <br>
                   <p style="color: red; margin: 0;padding: 0">
-                    <marquee>{{statusError}}</marquee>
+                    <mat-error>
+                      <marquee>{{statusError}}</marquee>
+                    </mat-error>
                   </p>
-                  <mat-error class="alert alert-primary col-12">{{status}}</mat-error>
+                  <mat-error class="alert alert-primary col-12"
+                             style="margin-top: 5px; margin: 0px; padding: 5px; text-align: center">{{status}}</mat-error>
+
                 </div>
                 <form class="form-angular" #f="ngForm" (ngSubmit)="f.form.valid && login()" novalidate>
 
@@ -22,7 +27,10 @@
                            placeholder="Name" required minlength="3" maxlength="50">
                     <mat-icon color="accent" matSuffix>account_circle</mat-icon>
                     <mat-error *ngIf="username.hasError('required')">The username is required!</mat-error>
-                    <mat-error *ngIf="username.hasError('minlength')">The username must at least 3 character!
+                    <mat-error *ngIf="username.hasError('minlength')">
+                      <marquee>
+                        The username must at least 3 character!
+                      </marquee>
                     </mat-error>
                   </mat-form-field>
                   <br>
@@ -36,7 +44,10 @@
                       <mat-icon color="accent">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                     <mat-error *ngIf="password.hasError('required')">The username is required!</mat-error>
-                    <mat-error *ngIf="password.hasError('minlength')">The username must at least 6 character!
+                    <mat-error *ngIf="password.hasError('minlength')">
+                      <marquee>
+                        The password must at least 6 character!
+                      </marquee>
                     </mat-error>
                   </mat-form-field>
                   <br>
@@ -45,7 +56,7 @@
                   </div>
 
                 </form>
-                <div class="col-12">
+                <div class="col-12" style="margin-top:10px ">
                   <p class="small mb-0">Don't have account? <a routerLink="/register">Create an account</a></p>
                 </div>
               </div>
