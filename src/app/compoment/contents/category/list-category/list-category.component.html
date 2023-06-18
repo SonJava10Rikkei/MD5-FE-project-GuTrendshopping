@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 90px; margin-bottom: 20px">
+      <mat-card style="margin: 0">
+        <div class="col-12" style="margin-top: 0">
+          <button *ngIf="checkUserLogin" (click)="openDialog()" class="btn btn-primary w-100" type="submit">Create
+            Category
+          </button>
+        </div>
+        <!--        <table class="table">-->
+        <!--          <tr>-->
+        <!--            <th>STT</th>-->
+        <!--            <th>ID</th>-->
+        <!--            <th>NAME</th>-->
+        <!--            <th>AVATAR</th>-->
+        <!--          </tr>-->
+        <!--          <tr *ngFor="let ct of listCategory; let i = index">-->
+        <!--            <td>{{i + 1}}</td>-->
+        <!--            <td>{{ct.id}}</td>-->
+        <!--            <td>{{ct.name}}</td>-->
+        <!--            <td>-->
+        <!--              <img style="width: 50px; height: 50px;" src="{{ct.avatar}}">-->
+        <!--            </td>-->
+        <!--          </tr>-->
+        <!--        </table>-->
+
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource">
+
+            <!-- STT Column -->
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef> No.</th>
+              <td mat-cell *matCellDef="let element; let i =index"> {{i + 1}} </td>
+            </ng-container>
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> ID</th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> NAME</th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Avatar Column -->
+            <ng-container matColumnDef="avatar">
+              <th mat-header-cell *matHeaderCellDef> AVATAR</th>
+              <td mat-cell *matCellDef="let element">
+                <img style="width: 50px; height: 50px;" src="{{element.avatar}}" alt="">
+              </td>
+            </ng-container>
+
+            <!-- Edit Column  -->
+            <!--            <ng-container matColumnDef="edit">-->
+            <!--              <th mat-header-cell *matHeaderCellDef> EDIT</th>-->
+            <!--              <td mat-cell *matCellDef="let element">-->
+            <!--                <button [routerLink]="['/update-category/',element.id]" mat-icon-button-->
+            <!--                        aria-label="Example icon button with a vertical three dot icon">-->
+            <!--                  <mat-icon color="primary">edit</mat-icon>-->
+            <!--                </button>-->
+            <!--              </td>-->
+            <!--            </ng-container>-->
+
+            <!-- Edit Column  cach 2 Daialog-->
+            <ng-container matColumnDef="edit">
+              <th mat-header-cell *matHeaderCellDef> EDIT</th>
+              <td mat-cell *matCellDef="let element">
+                <button (click)="openDialogUpdate(element.id)" mat-icon-button
+                        aria-label="Example icon button with a vertical three dot icon">
+                  <mat-icon color="primary">edit</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[2,4,5, 6, 10, 20]"
+                         showFirstLastButtons
+                         aria-label="Select page of periodic elements">
+          </mat-paginator>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

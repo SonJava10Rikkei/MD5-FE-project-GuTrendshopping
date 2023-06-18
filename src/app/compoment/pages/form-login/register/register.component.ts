@@ -33,7 +33,6 @@ export class RegisterComponent {
       this.form.email,
       this.form.password
     )
-    console.log("this signUpForm ---->", this.signUpForm);
     this.authService.signUp(this.signUpForm).subscribe(data =>{
       if(data.message=='no_user'){
         this.statusError = 'The username is existed! Please try again!'

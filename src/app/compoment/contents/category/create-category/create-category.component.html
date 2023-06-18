@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 20px; margin-bottom: 20px">
+      <p style="text-align: center; font-size: 20px;font-weight: 500; color: blue; margin-bottom: 20px">Create
+        Category</p>
+      <mat-card style="margin: 0">
+        <form class="form-angular" #f="ngForm" (ngSubmit)="f.form.valid && createCategory()" novalidate>
+          <mat-error class="matErrorFont">
+            {{status}}
+          </mat-error>
+          <!--                    NAME-->
+          <div class="col-12">
+            <mat-form-field appearance="outline" class="col-12">
+              <mat-label>Name:</mat-label>
+              <input name="name" #name="ngModel" [(ngModel)]="form.name" matInput placeholder="Name" required
+                     minlength="3" maxlength="50" style="height: 20px !important;">
+              <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-error *ngIf="name.hasError('required')" class="matErrorFont">
+                The name is required!
+              </mat-error>
+              <mat-error *ngIf="name.hasError('minlength')" class="matErrorFont">
+                <marquee>The name must at least 3 character!</marquee>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <!--                    END NAME-->
+
+          <app-upload-avatar (giveURLtoCreate)="onUpload($event)"></app-upload-avatar>
+          <div class="col-12" style="margin-top: 0">
+            <button class="btn btn-primary w-100" type="submit">
+              Create Category
+            </button>
+            <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>
+              Render list after close
+            </button>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

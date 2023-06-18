@@ -6,6 +6,8 @@ import {LoginComponent} from "./compoment/pages/form-login/login/login.component
 import {DadInputComponent} from "./compoment/input-output/@input/dad-input/dad-input.component";
 import {DadOutputComponent} from "./compoment/input-output/@output/dad-output/dad-output.component";
 import {ChangeAvatarComponent} from "./compoment/pages/form-login/change-avatar/change-avatar.component";
+import {ListCategoryComponent} from "./compoment/contents/category/list-category/list-category.component";
+import {UpdateCategoryComponent} from "./compoment/contents/category/update-category/update-category.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path: 'input', component: DadInputComponent},
   {path: 'output', component: DadOutputComponent},
   {path: 'change-avatar', component: ChangeAvatarComponent},
+  {path: 'category', component: ListCategoryComponent},
+  // {path: 'update-category/:id', component: UpdateCategoryComponent},
 ];
 
 @NgModule({
