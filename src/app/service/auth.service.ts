@@ -5,6 +5,7 @@ import {SignUpForm} from "../model/SignUpForm";
 import {Observable} from "rxjs";
 import {JwtResponse} from "../model/JwtResponse";
 import {SignInForm} from "../model/SignInForm";
+import {ChangeAvatar} from "../model/ChangeAvatar";
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,7 @@ private API_UPDATE_AVATAR = environment.API_LOCAL+'change-avatar'
   signIn(signInForm: SignInForm): Observable<JwtResponse>{
     return this.httpClient.post<JwtResponse>(this.API_SIGNIN, signInForm);
   }
-  // editAvatar(changeAvatar: ChangeAvatar): Observable<any>{
-  //   return this.httpClient.put<any>(this.API_UPDATE_AVATAR, changeAvatar);
-  // }
+  editAvatar(changeAvatar: ChangeAvatar): Observable<any>{
+    return this.httpClient.put<any>(this.API_UPDATE_AVATAR, changeAvatar);
+  }
 }

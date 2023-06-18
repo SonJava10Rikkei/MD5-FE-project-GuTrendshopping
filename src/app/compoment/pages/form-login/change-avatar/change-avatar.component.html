@@ -2,7 +2,12 @@
   <div class="row">
     <div class="col-12" style="margin-top: 70px; margin-bottom: 20px">
       <mat-card style="margin: 0">
-        <form #f="ngForm" (ngSubmit)="f.form.valid && updateAvatar"></form>
+        <form #f="ngForm" (ngSubmit)="f.form.valid && updateAvatar()" novalidate>
+          <app-upload-avatar (giveURLtoCreate)="onUpload($event)"></app-upload-avatar>
+          <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">
+            Update Avatar
+          </button>
+        </form>
       </mat-card>
     </div>
   </div>
