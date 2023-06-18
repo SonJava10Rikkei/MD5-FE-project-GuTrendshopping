@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class RegisterComponent {
   status = 'Please fill in the form to register';
-  statusError:string = '__________________________________________________________________';
+  statusError:string = '';
   form: any = {};
   signUpForm?: SignUpForm;
   emailFormValidate = new FormControl('', [

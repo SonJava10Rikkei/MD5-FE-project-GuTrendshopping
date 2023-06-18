@@ -1,0 +1,12 @@
+<div style="margin-top: 100px">
+
+  <app-child-output (sendData)="getData($event)"></app-child-output>
+  <ul style="margin-top: 100px">
+    <li *ngFor="let item of listStudent">
+      {{item}}
+    </li>
+  </ul>
+
+  <!--render trong mang dung *ngFor-->
+
+</div>

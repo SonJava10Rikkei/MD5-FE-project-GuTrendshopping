@@ -21,44 +21,48 @@
                       <input name="name" #name="ngModel" [(ngModel)]="form.name" matInput placeholder="Name" required
                              minlength="3" maxlength="50" style="height: 20px !important;">
                       <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
-                      <mat-error *ngIf="name.hasError('required')">The name is required!</mat-error>
-                      <mat-error *ngIf="name.hasError('minlength')">
+                      <mat-error *ngIf="name.hasError('required')" class="matErrorFont">The name is required!
+                      </mat-error>
+                      <mat-error *ngIf="name.hasError('minlength')" class="matErrorFont">
                         <marquee>The name must at least 3 character!</marquee>
                       </mat-error>
                     </mat-form-field>
                   </div>
 
                   <!--                    USERNAME-->
-                  <div class="col-12">
+                  <div class="col-12" style="margin-top: 0">
                     <mat-form-field appearance="outline" class="col-12">
                       <mat-label>Username:</mat-label>
                       <input name="username" #username="ngModel" [(ngModel)]="form.username" matInput
                              placeholder="Name" required minlength="3" maxlength="50">
                       <mat-icon color="accent" matSuffix>account_circle</mat-icon>
-                      <mat-error *ngIf="username.hasError('required')">The username is required!</mat-error>
-                      <mat-error *ngIf="username.hasError('minlength')">
+                      <mat-error *ngIf="username.hasError('required')" class="matErrorFont">The username is required!
+                      </mat-error>
+                      <mat-error *ngIf="username.hasError('minlength')" class="matErrorFont">
                         <marquee>The username must at least 3 character!</marquee>
                       </mat-error>
                     </mat-form-field>
                   </div>
 
                   <!--                    EMAIL-->
-                  <div class="col-12">
+                  <div class="col-12" style="margin-top: 0">
                     <mat-form-field appearance="outline" class="col-12">
                       <mat-label>Email:</mat-label>
                       <input name="mail" [(ngModel)]="form.email" matInput [formControl]="emailFormValidate"
                              placeholder="Name"
                              required>
                       <mat-icon color="accent" matSuffix>email</mat-icon>
-                      <mat-error *ngIf="emailFormValidate.hasError('required')">The email is required!</mat-error>
-                      <mat-error *ngIf="emailFormValidate.hasError('email')">
+                      <mat-error *ngIf="emailFormValidate.hasError('required')" class="matErrorFont">The email is
+                        required!
+                      </mat-error>
+                      <mat-error *ngIf="emailFormValidate.hasError('email')" class="matErrorFont">
                         <marquee>The email invalid! Ex: sonjapan7@gmail.com</marquee>
                       </mat-error>
                     </mat-form-field>
                   </div>
 
-                  <div class="col-12">
-                    <!--                    PASSWORD-->
+                  <!--                    PASSWORD-->
+                  <div class="col-12" style="margin-top: 0">
                     <mat-form-field class="col-12" appearance="outline">
                       <mat-label>Enter your password</mat-label>
                       <input #password="ngModel" [(ngModel)]="form.password" name="password" matInput
@@ -67,11 +71,10 @@
                               [attr.aria-pressed]="hide">
                         <mat-icon color="accent">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                       </button>
-                      <mat-error *ngIf="password.hasError('required')">The password is required!</mat-error>
-                      <mat-error *ngIf="password.hasError('minlength')">
+                      <mat-error *ngIf="password.hasError('required')" class="matErrorFont">The password is required!
+                      </mat-error>
+                      <mat-error *ngIf="password.hasError('minlength')" class="matErrorFont">
                         <marquee>The password must at least 6 character!</marquee>
-
-
                       </mat-error>
                     </mat-form-field>
                   </div>
@@ -84,7 +87,7 @@
                   <!--                      <div class="invalid-feedback">You must agree before submitting.</div>-->
                   <!--                    </div>-->
                   <!--                  </div>-->
-                  <div class="col-12">
+                  <div class="col-12" style="margin-top: 0">
                     <button class="btn btn-primary w-100" type="submit">Create Account</button>
                   </div>
                   <div class="col-12">

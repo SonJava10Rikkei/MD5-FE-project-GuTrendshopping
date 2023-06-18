@@ -16,6 +16,16 @@ import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { LoginComponent } from './compoment/pages/form-login/login/login.component';
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment.development";
+import { UploadAvatarComponent } from './compoment/upload/upload-avatar/upload-avatar.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { ChildInputComponent } from './compoment/input-output/@input/child-input/child-input.component';
+import { DadInputComponent } from './compoment/input-output/@input/dad-input/dad-input.component';
+import { ChildOutputComponent } from './compoment/input-output/@output/child-output/child-output.component';
+import { DadOutputComponent } from './compoment/input-output/@output/dad-output/dad-output.component';
+import { ChangeAvatarComponent } from './compoment/pages/form-login/change-avatar/change-avatar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +35,13 @@ import { LoginComponent } from './compoment/pages/form-login/login/login.compone
     HomeComponent,
     CustomBtnComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UploadAvatarComponent,
+    ChildInputComponent,
+    DadInputComponent,
+    ChildOutputComponent,
+    DadOutputComponent,
+    ChangeAvatarComponent
   ],
   imports: [
     HttpClientModule,
@@ -34,10 +50,13 @@ import { LoginComponent } from './compoment/pages/form-login/login/login.compone
     BrowserAnimationsModule,
     MatIconModule,
     MatInputModule,
+    ReactiveFormsModule,
     FormsModule,
     MatCardModule,
     MatButtonModule,
-    ReactiveFormsModule
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
