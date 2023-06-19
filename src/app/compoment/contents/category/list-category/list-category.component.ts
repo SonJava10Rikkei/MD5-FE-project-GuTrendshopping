@@ -7,6 +7,7 @@ import {CategoryService} from "../../../../service/category.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {UpdateCategoryComponent} from "../update-category/update-category.component";
+import {DeleteCategoryComponent} from "../delete-category/delete-category.component";
 
 @Component({
   selector: 'app-list-category',
@@ -15,8 +16,9 @@ import {UpdateCategoryComponent} from "../update-category/update-category.compon
 })
 export class ListCategoryComponent implements OnInit {
   checkUserLogin = false;
+  status: string = "";
   listCategory: Category[] = [];
-  displayedColumns: string[] = ['position', 'id', 'name', 'avatar', 'edit'];
+  displayedColumns: string[] = ['position', 'id', 'name', 'avatar', 'edit', 'delete'];
   dataSource: any;
 
   constructor(public dialog: MatDialog,
@@ -45,14 +47,33 @@ export class ListCategoryComponent implements OnInit {
         dataKey: id
       }
     });
-    console.log("id Dialog ----->", id)
-
     dialogRef.afterClosed().subscribe(result => {
       if (result || result == undefined) {
         this.categoryService.getListService().subscribe(data => {
           this.listCategory = data;
           this.dataSource = new MatTableDataSource<Category>(this.listCategory);
           this.dataSource.paginator = this.paginator;
+        })
+      }
+    });
+  }
+
+  openDialogDelete(id: any) {
+    const dialogRef = this.dialog.open(DeleteCategoryComponent, {
+      data: {
+        dataKey: id
+      }
+    });
+    // console.log('id --------------> ', id)
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.categoryService.deleteCategory(id).subscribe(data => {
+          this.status = "Delete Success";
+          this.categoryService.getListService().subscribe(data => {
+            this.listCategory = data;
+            this.dataSource = new MatTableDataSource<Category>(this.listCategory);
+            this.dataSource.paginator = this.paginator;
+          })
         })
       }
     });

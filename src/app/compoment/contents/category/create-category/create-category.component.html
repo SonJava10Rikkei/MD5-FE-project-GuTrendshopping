@@ -27,11 +27,12 @@
 
           <app-upload-avatar (giveURLtoCreate)="onUpload($event)"></app-upload-avatar>
           <div class="col-12" style="margin-top: 0">
-            <button class="btn btn-primary w-100" type="submit">
+            <button class="btn btn-primary w-100" type="submit" style="margin-bottom: 8px; margin-top: 8px">
               Create Category
             </button>
+            <br>
             <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>
-              Render list after close
+              Close
             </button>
           </div>
         </form>

@@ -34,4 +34,13 @@ export class CategoryService {
   updateCategory(id: number, category: Category): Observable<any> {
     return this.httpClient.put(this.API_CATEGORY + '/' + id, category);
   }
+
+  deleteCategory(id: number): Observable<any> {
+    return this.httpClient.delete(this.API_CATEGORY + '/' + id);
+  }
+
+  getPageCategory(request: any): Observable<any> {
+    const params = request;
+    return this.httpClient.get(this.API_CATEGORY+'/page', {params})
+  }
 }

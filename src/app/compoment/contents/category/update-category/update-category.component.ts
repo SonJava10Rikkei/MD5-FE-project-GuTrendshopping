@@ -24,13 +24,13 @@ export class UpdateCategoryComponent implements OnInit {
   updateCategory() {
     // @ts-ignore
     this.categoryService.updateCategory(this.category?.id, this.category).subscribe(data =>{
-      console.log('data UPDATE ========================>', data)
+      // console.log('data UPDATE ========================>', data)
       if(data.message=='no_change'){
-        this.status = 'MÀY VÀO ĐÂY VỚI MỤC ĐÍCH GÌ???'
+        this.status = 'CATEGORY DOESN\'T CHANGE?'
       } else if(data.message == 'name_existed'){
-        this.status ='TÊN CATEGORY ĐANG BỊ TRÙNG'
+        this.status ='CATEGORY NAME EXISTED'
       } else if(data.message == 'update_success'){
-        this.status = 'SỬA THÀNH CÔNG!!!'
+        this.status = 'EDIT SUCCESS!!!'
       }
     })
   }
@@ -40,20 +40,11 @@ export class UpdateCategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('data tu inject --->', this.data.dataKey)
+    // console.log('data tu inject --->', this.data.dataKey)
     this.categoryService.getCategoryById(this.data.dataKey).subscribe(data =>{
       this.category = data;
-      console.log('category OLD -------------------- --->', this.category)
+      // console.log('category OLD -------------------- --->', this.category)
     })
-    // this.actRouter.paramMap.subscribe(categoryId => {
-    //   console.log('categoryId ---->', categoryId)
-    //   // @ts-ignore
-    //   const id = +categoryId.get('id');
-    //   console.log('id ---->', id)
-    //   this.categoryService.getCategoryById(id).subscribe(data => {
-    //     this.category = data;
-    //     console.log('category --->', this.category)
-    //   })
-    // })
+
   }
 }

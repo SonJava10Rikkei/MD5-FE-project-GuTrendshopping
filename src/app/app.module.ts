@@ -33,6 +33,8 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { UpdateCategoryComponent } from './compoment/contents/category/update-category/update-category.component';
+import { DeleteCategoryComponent } from './compoment/contents/category/delete-category/delete-category.component';
+import { PageCategoryComponent } from './compoment/contents/category/page-category/page-category.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { UpdateCategoryComponent } from './compoment/contents/category/update-ca
     ListCategoryComponent,
     CreateCategoryComponent,
     UpdateCategoryComponent,
+    DeleteCategoryComponent,
+    PageCategoryComponent,
   ],
   imports: [
     HttpClientModule,
