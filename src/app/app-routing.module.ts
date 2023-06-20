@@ -27,14 +27,11 @@ const routes: Routes = [
     path: 'admin', component: AdminIndexComponent, children: [
       {path: '', component: AdminHomeComponent},
       {path: 'category', component: ListCategoryComponent},
-      {path: 'register', component: RegisterComponent},
-      {path: 'login', component: LoginComponent},
       {path: 'input', component: DadInputComponent},
       {path: 'output', component: DadOutputComponent},
       {path: 'change-avatar', component: ChangeAvatarComponent},
     ]
   }
-  // {path: 'update-category/:id', component: UpdateCategoryComponent},
 ];
 
 @NgModule({
