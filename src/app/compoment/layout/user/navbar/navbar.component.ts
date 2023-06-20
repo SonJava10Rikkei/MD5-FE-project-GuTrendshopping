@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logOut() {
-    sessionStorage.clear();
+    localStorage.clear();
     window.location.reload();
   }
 }
