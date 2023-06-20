@@ -10,7 +10,7 @@ export class SignUpForm{
     this.username = username;
     this.email = email;
     this.password = password;
-    this.roles = ['admin'];
+    this.roles = ['admin-user-home'];
   }
 
 }

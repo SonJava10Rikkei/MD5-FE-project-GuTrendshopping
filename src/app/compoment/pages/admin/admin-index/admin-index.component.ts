@@ -1,28 +1,25 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-admin-index',
+  templateUrl: './admin-index.component.html',
+  styleUrls: ['./admin-index.component.scss']
 })
-export class AppComponent implements OnInit{
-  title = 'MD5-FE';
-
-
-
-  ngOnInit() {
+export class AdminIndexComponent implements OnInit {
+  ngOnInit(): void {
     loadJs();
   }
+
 }
 
 function loadJs() {
-  (function() {
+  (function () {
     "use strict";
 
     /**
      * Easy selector helper function
      */
-    const select = (el:any, all = false) => {
+    const select = (el: any, all = false) => {
       el = el.trim()
       if (all) {
         // @ts-ignore
@@ -35,7 +32,7 @@ function loadJs() {
     /**
      * Easy event listener function
      */
-    const on = (type : any, el : any, listener : any, all = false) => {
+    const on = (type: any, el: any, listener: any, all = false) => {
       if (all) {
         // @ts-ignore
         select(el, all).forEach(e => e.addEventListener(type, listener))
@@ -47,7 +44,7 @@ function loadJs() {
     /**
      * Easy on scroll event listener
      */
-    const onscroll = (el:any, listener:any) => {
+    const onscroll = (el: any, listener: any) => {
       el.addEventListener('scroll', listener)
     }
 
@@ -55,7 +52,7 @@ function loadJs() {
      * Sidebar toggle
      */
     if (select('.toggle-sidebar-btn')) {
-      on('click', '.toggle-sidebar-btn', function() {
+      on('click', '.toggle-sidebar-btn', function () {
         select('body').classList.toggle('toggle-sidebar')
       })
     }
@@ -64,7 +61,7 @@ function loadJs() {
      * Search bar toggle
      */
     if (select('.search-bar-toggle')) {
-      on('click', '.search-bar-toggle', function() {
+      on('click', '.search-bar-toggle', function () {
         select('.search-bar').classList.toggle('search-bar-show')
       })
     }
@@ -134,9 +131,9 @@ function loadJs() {
     var needsValidation = document.querySelectorAll('.needs-validation')
 
     Array.prototype.slice.call(needsValidation)
-      .forEach(function(form) {
+      .forEach(function (form) {
         // @ts-ignore
-        form.addEventListener('submit', function(event) {
+        form.addEventListener('submit', function (event) {
           if (!form.checkValidity()) {
             event.preventDefault()
             event.stopPropagation()

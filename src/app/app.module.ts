@@ -4,9 +4,9 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NavbarComponent} from './compoment/layout/user/navbar/navbar.component';
-import {FooterComponent} from './compoment/layout/user/footer/footer.component';
-import {HomeComponent} from './compoment/pages/home/home.component';
+import {UserNavbarComponent} from './compoment/layout/user/user-navbar/user-navbar.component';
+import {UserFooterComponent} from './compoment/layout/user/user-footer/user-footer.component';
+import {UserHomeComponent} from './compoment/pages/user/user-home/user-home.component';
 import {CustomBtnComponent} from './compoment/customs/custom-btn/custom-btn.component';
 import {RegisterComponent} from './compoment/pages/form-login/register/register.component';
 import {MatIconModule} from "@angular/material/icon";
@@ -35,13 +35,18 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import { UpdateCategoryComponent } from './compoment/contents/category/update-category/update-category.component';
 import { DeleteCategoryComponent } from './compoment/contents/category/delete-category/delete-category.component';
 import { PageCategoryComponent } from './compoment/contents/category/page-category/page-category.component';
+import { UserIndexComponent } from './compoment/pages/user/user-index/user-index.component';
+import { AdminHomeComponent } from './compoment/pages/admin/admin-home/admin-home.component';
+import { AdminIndexComponent } from './compoment/pages/admin/admin-index/admin-index.component';
+import { AdminNavbarComponent } from './compoment/layout/admin/admin-navbar/admin-navbar.component';
+import { AdminFooterComponent } from './compoment/layout/admin/admin-footer/admin-footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    FooterComponent,
-    HomeComponent,
+    UserNavbarComponent,
+    UserFooterComponent,
+    UserHomeComponent,
     CustomBtnComponent,
     RegisterComponent,
     LoginComponent,
@@ -56,6 +61,11 @@ import { PageCategoryComponent } from './compoment/contents/category/page-catego
     UpdateCategoryComponent,
     DeleteCategoryComponent,
     PageCategoryComponent,
+    UserIndexComponent,
+    AdminHomeComponent,
+    AdminIndexComponent,
+    AdminNavbarComponent,
+    AdminFooterComponent,
   ],
   imports: [
     HttpClientModule,

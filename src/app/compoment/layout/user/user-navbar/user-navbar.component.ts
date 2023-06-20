@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {TokenService} from "../../../../service/token.service";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-user-navbar',
+  templateUrl: './user-navbar.component.html',
+  styleUrls: ['./user-navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class UserNavbarComponent implements OnInit {
   name = '';
   avatar = '';
   checkLogin = false;
