@@ -2,26 +2,6 @@ export function adminSidebar() {
 
   (function () {
     console.log("funciton test")
-    // Get the container element
-    var btnContainer = document.getElementById("sidebar-nav");
-
-// Get all buttons with class="btn" inside the container
-    // @ts-ignore
-    var btns = btnContainer.getElementsByClassName("components-nav-li");
-
-// Loop through the buttons and add the active class to the current/clicked button
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("click", function() {
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        // @ts-ignore
-        this.className += " active";
-      });
-    }
-
-
-
-
 
     "use strict";
 
