@@ -631,7 +631,7 @@ h6 {
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: #aab7cf;
+  background-color: #a8b8d7;
 }
 
 @media (min-width: 1200px) {
@@ -690,9 +690,12 @@ h6 {
   font-size: 15px;
   font-weight: 600;
   color: #4154f1;
-  background: #f6f9ff;
+  //background: #f6f9ff;
+  // mau nen menu do ra li
+  background-color: rgba(255, 153, 0, 0.15);
   padding: 10px 15px;
   border-radius: 4px;
+
 }
 
 .sidebar-nav .nav-link i {
@@ -702,7 +705,7 @@ h6 {
 }
 
 .sidebar-nav .nav-link.collapsed {
-  color: #012970;
+  color: #022f7f;
   background: #fff;
 }
 
@@ -710,13 +713,14 @@ h6 {
   color: #899bbd;
 }
 
+
 .sidebar-nav .nav-link:hover {
-  color: #4154f1;
-  background: #f6f9ff;
+  color: #3247ef;
+  background: #d9def6;
 }
 
 .sidebar-nav .nav-link:hover i {
-  color: #4154f1;
+  color: rgba(89, 119, 241, 0.52);
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -732,6 +736,9 @@ h6 {
   padding: 5px 0 0 0;
   margin: 0;
   list-style: none;
+  //mau nen li admin menu
+  background: rgba(163, 178, 248, 0.11);
+
 }
 
 .sidebar-nav .nav-content a {
@@ -742,6 +749,7 @@ h6 {
   color: #012970;
   padding: 10px 0 10px 40px;
   transition: 0.3s;
+
 }
 
 .sidebar-nav .nav-content a i {
@@ -754,6 +762,7 @@ h6 {
 .sidebar-nav .nav-content a:hover,
 .sidebar-nav .nav-content a.active {
   color: #4154f1;
+
 }
 
 .sidebar-nav .nav-content a.active i {
