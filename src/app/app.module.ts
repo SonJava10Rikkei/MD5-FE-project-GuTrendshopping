@@ -40,6 +40,9 @@ import { AdminHomeComponent } from './compoment/pages/admin/admin-home/admin-hom
 import { AdminIndexComponent } from './compoment/pages/admin/admin-index/admin-index.component';
 import { AdminNavbarComponent } from './compoment/layout/admin/admin-navbar/admin-navbar.component';
 import { AdminFooterComponent } from './compoment/layout/admin/admin-footer/admin-footer.component';
+import { UploadFileComponent } from './compoment/upload/upload-file/upload-file.component';
+import { ErrorComponent } from './compoment/pages/error/error.component';
+import { ProfileComponent } from './compoment/pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +69,9 @@ import { AdminFooterComponent } from './compoment/layout/admin/admin-footer/admi
     AdminIndexComponent,
     AdminNavbarComponent,
     AdminFooterComponent,
+    UploadFileComponent,
+    ErrorComponent,
+    ProfileComponent,
   ],
   imports: [
     HttpClientModule,

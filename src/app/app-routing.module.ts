@@ -10,6 +10,8 @@ import {ListCategoryComponent} from "./compoment/contents/category/list-category
 import {UserIndexComponent} from "./compoment/pages/user/user-index/user-index.component";
 import {AdminHomeComponent} from "./compoment/pages/admin/admin-home/admin-home.component";
 import {AdminIndexComponent} from "./compoment/pages/admin/admin-index/admin-index.component";
+import {ErrorComponent} from "./compoment/pages/error/error.component";
+import {ProfileComponent} from "./compoment/pages/profile/profile.component";
 
 const routes: Routes = [
   {
@@ -20,6 +22,9 @@ const routes: Routes = [
       {path: 'input', component: DadInputComponent},
       {path: 'output', component: DadOutputComponent},
       {path: 'change-avatar', component: ChangeAvatarComponent},
+      {path: 'error-404', component: ErrorComponent},
+      {path: 'profile', component: ProfileComponent},
+
     ]
   },
 
@@ -30,6 +35,10 @@ const routes: Routes = [
       {path: 'input', component: DadInputComponent},
       {path: 'output', component: DadOutputComponent},
       {path: 'change-avatar', component: ChangeAvatarComponent},
+      {path: 'error-404', component: ErrorComponent},
+      {path: 'profile', component: ProfileComponent},
+
+
     ]
   }
 ];
