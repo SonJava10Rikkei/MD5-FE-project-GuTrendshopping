@@ -43,6 +43,10 @@ import { AdminFooterComponent } from './compoment/layout/admin/admin-footer/admi
 import { UploadFileComponent } from './compoment/upload/upload-file/upload-file.component';
 import { ErrorComponent } from './compoment/pages/error/error.component';
 import { ProfileComponent } from './compoment/pages/profile/profile.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { ListProductComponent } from './compoment/contents/Product/list-product/list-product.component';
+import { CreateProductComponent } from './compoment/contents/Product/create-product/create-product.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -72,6 +76,8 @@ import { ProfileComponent } from './compoment/pages/profile/profile.component';
     UploadFileComponent,
     ErrorComponent,
     ProfileComponent,
+    ListProductComponent,
+    CreateProductComponent,
   ],
   imports: [
     HttpClientModule,
@@ -89,7 +95,9 @@ import { ProfileComponent } from './compoment/pages/profile/profile.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatProgressSpinnerModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatSelectModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

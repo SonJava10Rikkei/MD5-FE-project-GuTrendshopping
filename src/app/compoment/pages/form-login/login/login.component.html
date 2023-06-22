@@ -10,7 +10,7 @@
                   <h5 class="card-title text-center pb-0 fs-4 " style="margin: 0;color: blue; font-weight: 700">Login to
                     Your Account</h5> <br>
                   <p style="color: red; margin: 0;padding: 0">
-                    <mat-error>
+                    <mat-error class="matErrorFont">
                       <marquee>{{statusError}}</marquee>
                     </mat-error>
                   </p>
@@ -26,9 +26,9 @@
                     <input name="username" #username="ngModel" [(ngModel)]="form.username" matInput
                            placeholder="Name" required minlength="3" maxlength="50">
                     <mat-icon color="accent" matSuffix>account_circle</mat-icon>
-                    <mat-error *ngIf="username.hasError('required')">The username is required!</mat-error>
-                    <mat-error *ngIf="username.hasError('minlength')">
-                      <marquee>
+                    <mat-error class="matErrorFont" *ngIf="username.hasError('required')">The username is required!</mat-error>
+                    <mat-error class="matErrorFont" *ngIf="username.hasError('minlength')">
+                      <marquee class="matErrorFont">
                         The username must at least 3 character!
                       </marquee>
                     </mat-error>
@@ -43,8 +43,8 @@
                             [attr.aria-pressed]="hide">
                       <mat-icon color="accent">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
-                    <mat-error *ngIf="password.hasError('required')">The username is required!</mat-error>
-                    <mat-error *ngIf="password.hasError('minlength')">
+                    <mat-error class="matErrorFont" *ngIf="password.hasError('required')">The username is required!</mat-error>
+                    <mat-error class="matErrorFont" *ngIf="password.hasError('minlength')">
                       <marquee>
                         The password must at least 6 character!
                       </marquee>

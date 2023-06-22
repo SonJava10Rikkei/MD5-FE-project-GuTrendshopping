@@ -10,7 +10,7 @@ export class UploadAvatarComponent {
   selectedFile?: File;
   ref?: AngularFireStorageReference;
   downloadURL?: string;
-  checkUploadAvatar = false;
+  checkUploadFileProduct = false;
   @Output()
   giveURLtoCreate = new EventEmitter<string>();
 
@@ -23,7 +23,7 @@ export class UploadAvatarComponent {
   }
 
   onUpload() {
-    this.checkUploadAvatar = true;
+    this.checkUploadFileProduct = true;
     const id = this.selectedFile?.name + '_' + Math.random().toString(18).substring(2); //Tạo ra 1 name riêng cho mỗi DB firebase;
     this.ref = this.afStorage.ref(id);
     this.ref.put(this.selectedFile).then(snapshot => {
@@ -31,7 +31,7 @@ export class UploadAvatarComponent {
     }).then(downloadURL => { //chuyen giao link tu nhung component khac nhau khi su upload
       this.downloadURL = downloadURL;
       this.giveURLtoCreate.emit(this.downloadURL);
-      this.checkUploadAvatar = false;
+      this.checkUploadFileProduct = false;
       return downloadURL;
     })
       .catch(error => {

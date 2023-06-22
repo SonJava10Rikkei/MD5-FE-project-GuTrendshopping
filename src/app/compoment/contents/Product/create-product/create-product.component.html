@@ -1,0 +1,111 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 20px; margin-bottom: 20px">
+      <p style="text-align: center; font-size: 20px;font-weight: 500; color: blue; margin-bottom: 20px">Create
+        Product</p>
+      <mat-error class="matErrorFont form-angular">
+        <marquee>{{status}}</marquee>
+      </mat-error>
+      <mat-card style="margin: 0">
+        <mat-dialog-content class="mat-typography">
+          <form class="form-angular" #f="ngForm" (ngSubmit)="f.form.valid && createProduct()" novalidate>
+
+            <!--                    NAME-->
+            <div class="col-12">
+              <mat-form-field appearance="outline" class="col-12">
+                <mat-label>Name:</mat-label>
+                <input name="name" #name="ngModel" [(ngModel)]="form.name" matInput placeholder="Name" required
+                       minlength="3" maxlength="50" style="height: 20px !important;">
+                <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-error *ngIf="name.hasError('required')" class="matErrorFont">
+                  The name is required!
+                </mat-error>
+                <mat-error *ngIf="name.hasError('minlength')" class="matErrorFont">
+                  <marquee>The name must at least 3 character!</marquee>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <!--                    END NAME-->
+
+            <!--          category select-->
+            <mat-form-field appearance="outline" style="width: 350px">
+              <mat-label>Category</mat-label>
+              <mat-select [(ngModel)]="form.category" name="category" [formControl]="validateCategory">
+                <mat-option *ngFor="let ctg of listCategory" [value]="ctg">
+                  {{ctg.name}}
+                </mat-option>
+              </mat-select>
+              <mat-error class="matErrorFont" *ngIf="validateCategory.hasError('required')">Please select one category!</mat-error>
+            </mat-form-field>
+
+            <!--                    price-->
+            <div class="col-12">
+              <mat-form-field appearance="outline" class="col-12">
+                <mat-label>Price:</mat-label>
+                <input type="number" name="price" #price="ngModel" [(ngModel)]="form.price" matInput placeholder="Price" required
+                       minlength="3" style="height: 20px !important;">
+                <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-error *ngIf="price.hasError('required')" class="matErrorFont">
+                  The price is required!
+                </mat-error>
+                <mat-error *ngIf="price.hasError('minlength')" class="matErrorFont">
+                  <marquee>The price must at least 3 character!</marquee>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <!--                    END price-->
+
+            <!--                    Quantity-->
+            <div class="col-12">
+              <mat-form-field appearance="outline" class="col-12">
+                <mat-label>Quantity:</mat-label>
+                <input type="number" name="quantity" #quantity="ngModel" [(ngModel)]="form.quantity" matInput placeholder="Quantity" required
+                       minlength="3"  style="height: 20px !important;">
+                <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-error *ngIf="quantity.hasError('required')" class="matErrorFont">
+                  The quantity is required!
+                </mat-error>
+                <mat-error *ngIf="quantity.hasError('minlength')" class="matErrorFont">
+                  <marquee>The quantity must at least 3 character!</marquee>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <!--                    END Quantity-->
+
+<!--            upload anh-->
+            <app-upload-avatar (giveURLtoCreate)="onUploadAvatar($event)"></app-upload-avatar>
+
+            <div class="col-12">
+              <mat-form-field appearance="outline" class="col-12">
+                <mat-label>Description:</mat-label>
+                <textarea name="description" #name="ngModel" [(ngModel)]="form.description" matInput placeholder="Description"
+                          required
+                          minlength="3" style="margin-top: 50px !important;"></textarea>
+                <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-error *ngIf="name.hasError('required')" class="matErrorFont">
+                  The description is required!
+                </mat-error>
+                <mat-error *ngIf="name.hasError('minlength')" class="matErrorFont">
+                  <marquee>The name must at least 3 character!</marquee>
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+
+            <div class="col-12" style="margin-top: 0">
+              <button class="btn btn-primary w-100" type="submit" style="margin-bottom: 8px; margin-top: 8px">
+                Create Product
+              </button>
+              <br>
+              <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>
+                Close
+              </button>
+            </div>
+
+
+          </form>
+        </mat-dialog-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
