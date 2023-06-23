@@ -8,6 +8,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {UpdateCategoryComponent} from "../update-category/update-category.component";
 import {DeleteCategoryComponent} from "../delete-category/delete-category.component";
+declare var $: any;
 
 @Component({
   selector: 'app-list-category',
@@ -83,6 +84,11 @@ export class ListCategoryComponent implements OnInit {
   @ViewChild(MatPaginator) paginator?: MatPaginator;
 
   ngOnInit(): void {
+    $(document).ready(function () {
+      $('#example').DataTable({
+        responsive: true
+      });
+    });
     if (this.tokenService.getToken()) {
       this.checkUserLogin = true;
     }

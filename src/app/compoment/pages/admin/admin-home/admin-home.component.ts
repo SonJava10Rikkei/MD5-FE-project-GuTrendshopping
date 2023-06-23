@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {adminSidebar} from "../../../customs/js/admin-sidebar";
+declare var $: any;
 
 @Component({
   selector: 'app-admin-user-home',
@@ -9,7 +9,20 @@ import {adminSidebar} from "../../../customs/js/admin-sidebar";
 export class AdminHomeComponent implements OnInit {
 
   ngOnInit(): void {
+    $(document).ready(function () {
+      $('#example').DataTable({
+        responsive: true
+      });
+    });
   }
+
 }
+
+
+
+
+
+
+
 
 
