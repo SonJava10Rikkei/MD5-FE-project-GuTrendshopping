@@ -26,9 +26,9 @@ export class CreateProductComponent implements OnInit {
   ngOnInit(): void {
     this.categoryService.getListService().subscribe(data => {
       this.listCategory = data;
-      console.log('listCategory --->', this.listCategory)
+      // console.log('listCategory --->', this.listCategory)
     })
-    // this.singerService.getListSingerService().subscribe(data => {
+    // this.categoryService.getListSingerService().subscribe(data => {
     //   this.singerList = data;
     // })
   }
@@ -57,12 +57,17 @@ export class CreateProductComponent implements OnInit {
       this.form.avatar,
       this.form.description,
     )
-    // console.log('this product ----->', this.product)
-    this.productService.createProductService(this.product).subscribe(data => {
-      if (data.message == 'create_success') {
-        this.status = 'Create Product success'
-      }
-    })
+    if (this.form.name != undefined) {
+      this.productService.createProductService(this.product).subscribe(data => {
+        if (data.message == 'name_exist') {
+          this.status = 'The name is existed! Please try again!';
+          return;
+        } else {
+          console.log('this product ----->', this.product)
+          this.status = 'Create Product success'
+        }
+      })
+    }
   }
 
 }

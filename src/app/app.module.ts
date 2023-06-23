@@ -47,6 +47,9 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { ListProductComponent } from './compoment/contents/Product/list-product/list-product.component';
 import { CreateProductComponent } from './compoment/contents/Product/create-product/create-product.component';
 import {MatSelectModule} from "@angular/material/select";
+import { DeleteProductComponent } from './compoment/contents/Product/delete-product/delete-product.component';
+import { PageProductComponent } from './compoment/contents/Product/page-product/page-product.component';
+import { UpdateProductComponent } from './compoment/contents/Product/update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +81,9 @@ import {MatSelectModule} from "@angular/material/select";
     ProfileComponent,
     ListProductComponent,
     CreateProductComponent,
+    DeleteProductComponent,
+    PageProductComponent,
+    UpdateProductComponent,
   ],
   imports: [
     HttpClientModule,

@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {TokenService} from "../../../../service/token.service";
-import {CreateCategoryComponent} from "../../category/create-category/create-category.component";
-import {CreateProductComponent} from "../create-product/create-product.component";
-import {Category} from "../../../../model/Category";
-import {DeleteCategoryComponent} from "../../category/delete-category/delete-category.component";
 import {MatTableDataSource} from "@angular/material/table";
-import {UpdateCategoryComponent} from "../../category/update-category/update-category.component";
+import {MatPaginator} from "@angular/material/paginator";
+
+import {CreateProductComponent} from "../create-product/create-product.component";
+import {TokenService} from "../../../../service/token.service";
+import {ProductService} from "../../../../service/product.service";
+import {Product} from "../../../../model/Product";
+import {UpdateProductComponent} from "../update-product/update-product.component";
+import {DeleteProductComponent} from "../delete-product/delete-product.component";
+import {Category} from "../../../../model/Category";
 
 
 @Component({
@@ -14,47 +17,81 @@ import {UpdateCategoryComponent} from "../../category/update-category/update-cat
   templateUrl: './list-product.component.html',
   styleUrls: ['./list-product.component.scss']
 })
-export class ListProductComponent {
+export class ListProductComponent implements OnInit {
   checkUserLogin = false;
   status: string = "";
-  listCategory: Category[] = [];
-  displayedColumns: string[] = ['position', 'id', 'name', 'avatar', 'edit', 'delete'];
+  listProduct: Product[] = [];
+  displayedColumns: string[] = ['position', 'name','avatar','category', 'price','quantity',  'edit', 'delete'];
   dataSource: any;
 
   constructor(public dialog: MatDialog,
               private tokenService: TokenService,
-
+              private productService: ProductService
   ) {
   }
 
   openDialog() {
     const dialogRef = this.dialog.open(CreateProductComponent);
     dialogRef.afterClosed().subscribe(result => {
-
+      if (result || result == undefined) {
+        this.productService.getListProductService().subscribe(data => {
+          this.listProduct = data;
+          this.dataSource = new MatTableDataSource<Product>(this.listProduct);
+          this.dataSource.paginator = this.paginator;
+        })
+      }
     });
   }
 
   openDialogUpdate(id: any) {
-    const dialogRef = this.dialog.open(UpdateCategoryComponent, {
+    const dialogRef = this.dialog.open(UpdateProductComponent, {
       data: {
         dataKey: id
       }
     });
-
-
+    dialogRef.afterClosed().subscribe(result => {
+      if (result || result == undefined) {
+        this.productService.getListProductService().subscribe(data => {
+          this.listProduct = data;
+          this.dataSource = new MatTableDataSource<Product>(this.listProduct);
+          this.dataSource.paginator = this.paginator;
+        })
+      }
+    });
   }
+
   openDialogDelete(id: any) {
-    const dialogRef = this.dialog.open(DeleteCategoryComponent, {
+    const dialogRef = this.dialog.open(DeleteProductComponent, {
       data: {
         dataKey: id
       }
     });
-    // console.log('id --------------> ', id)
+
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-
-
+        this.productService.deleteProductService(id).subscribe(data => {
+          this.status = "Delete Success";
+          this.productService.getListProductService().subscribe(data => {
+            this.listProduct = data;
+            this.dataSource = new MatTableDataSource<Product>(this.listProduct);
+            this.dataSource.paginator = this.paginator;
+          })
+        })
       }
     });
+  }
+
+  // phan trang
+  @ViewChild(MatPaginator) paginator?: MatPaginator;
+
+  ngOnInit(): void {
+    if (this.tokenService.getToken()) {
+      this.checkUserLogin = true;
+    }
+    this.productService.getListProductService().subscribe(data => {
+      this.listProduct = data;
+      this.dataSource = new MatTableDataSource<Product>(this.listProduct);
+      this.dataSource.paginator = this.paginator;
+    })
   }
 }
