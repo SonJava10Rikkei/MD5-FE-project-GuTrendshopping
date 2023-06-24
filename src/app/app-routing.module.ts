@@ -13,7 +13,7 @@ import {AdminIndexComponent} from "./compoment/pages/admin/admin-index/admin-ind
 import {ErrorComponent} from "./compoment/pages/error/error.component";
 import {ProfileComponent} from "./compoment/pages/profile/profile.component";
 import {ListProductComponent} from "./compoment/contents/Product/list-product/list-product.component";
-import {CreateProductComponent} from "./compoment/contents/Product/create-product/create-product.component";
+import {NotifierComponent} from "./compoment/notifier/notifier.component";
 
 const routes: Routes = [
   {
@@ -40,8 +40,7 @@ const routes: Routes = [
       {path: 'error-404', component: ErrorComponent},
       {path: 'profile', component: ProfileComponent},
       {path: 'list-product', component: ListProductComponent},
-      {path: 'list-product', component: ListProductComponent},
-
+      {path: 'notifier', component: NotifierComponent},
 
 
     ]

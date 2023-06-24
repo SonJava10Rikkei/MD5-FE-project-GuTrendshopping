@@ -8,7 +8,11 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {UpdateCategoryComponent} from "../update-category/update-category.component";
 import {DeleteCategoryComponent} from "../delete-category/delete-category.component";
-declare var $: any;
+import {ToastrService} from "ngx-toastr";
+import {NotifierService} from "../../../../service/notifier.service";
+
+
+
 
 @Component({
   selector: 'app-list-category',
@@ -25,8 +29,11 @@ export class ListCategoryComponent implements OnInit {
   constructor(public dialog: MatDialog,
               private tokenService: TokenService,
               private categoryService: CategoryService,
+              private toast:NotifierService
+
   ) {
   }
+
 
   openDialog() {
     const dialogRef = this.dialog.open(CreateCategoryComponent);
@@ -69,7 +76,8 @@ export class ListCategoryComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.categoryService.deleteCategory(id).subscribe(data => {
-          this.status = "Delete Success";
+          // this.status = "Delete Success";
+          this.toast.ShowSuccessToastr('Success','Delete Category :')
           this.categoryService.getListService().subscribe(data => {
             this.listCategory = data;
             this.dataSource = new MatTableDataSource<Category>(this.listCategory);
@@ -82,13 +90,7 @@ export class ListCategoryComponent implements OnInit {
 
   // phan trang
   @ViewChild(MatPaginator) paginator?: MatPaginator;
-
   ngOnInit(): void {
-    $(document).ready(function () {
-      $('#example').DataTable({
-        responsive: true
-      });
-    });
     if (this.tokenService.getToken()) {
       this.checkUserLogin = true;
     }
@@ -98,4 +100,6 @@ export class ListCategoryComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
     })
   }
+
 }
+

@@ -4,6 +4,7 @@ import {Category} from "../../../../model/Category";
 import {FormControl, Validators} from "@angular/forms";
 import {Product} from "../../../../model/Product";
 import {ProductService} from "../../../../service/product.service";
+import {NotifierService} from "../../../../service/notifier.service";
 
 @Component({
   selector: 'app-create-product',
@@ -13,13 +14,14 @@ import {ProductService} from "../../../../service/product.service";
 export class CreateProductComponent implements OnInit {
   form: any = {};
   listCategory: Category[] = [];
-  status: string = ''
+  status: string = 'FORM CREATE PRODUCT'
   product?: Product;
   validateCategory = new FormControl('', [
     Validators.required,
   ])
 
   constructor(private categoryService: CategoryService,
+              private toast: NotifierService,
               private productService: ProductService) {
   }
 
@@ -41,11 +43,11 @@ export class CreateProductComponent implements OnInit {
 
   createProduct() {
     if (this.form.category == undefined) {
-      this.status = 'Please select one Category'
+      this.toast.ShowErrorToastr('Please select one Category !','Create Product :')
       return
     }
     if (this.form.avatar == undefined) {
-      this.status = 'Please upload avatar'
+      this.toast.ShowErrorToastr('Please select upload choose avatar file !','Create Product :')
       return;
     }
 
@@ -60,11 +62,11 @@ export class CreateProductComponent implements OnInit {
     if (this.form.name != undefined) {
       this.productService.createProductService(this.product).subscribe(data => {
         if (data.message == 'name_exist') {
-          this.status = 'The name is existed! Please try again!';
+          this.toast.ShowWarningToastr('The name is existed. Please try again!','Create Product :')
           return;
         } else {
-          console.log('this product ----->', this.product)
-          this.status = 'Create Product success'
+          // console.log('this product ----->', this.product)
+          this.toast.ShowSuccessToastr('Success !','Create Product :')
         }
       })
     }

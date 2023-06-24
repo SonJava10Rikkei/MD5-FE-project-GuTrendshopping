@@ -10,6 +10,7 @@ import {Product} from "../../../../model/Product";
 import {UpdateProductComponent} from "../update-product/update-product.component";
 import {DeleteProductComponent} from "../delete-product/delete-product.component";
 import {Category} from "../../../../model/Category";
+import {NotifierService} from "../../../../service/notifier.service";
 
 
 @Component({
@@ -26,7 +27,9 @@ export class ListProductComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
               private tokenService: TokenService,
-              private productService: ProductService
+              private productService: ProductService,
+              private toast: NotifierService,
+
   ) {
   }
 
@@ -70,7 +73,7 @@ export class ListProductComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.productService.deleteProductService(id).subscribe(data => {
-          this.status = "Delete Success";
+          this.toast.ShowSuccessToastr('Success !','Delete Product :')
           this.productService.getListProductService().subscribe(data => {
             this.listProduct = data;
             this.dataSource = new MatTableDataSource<Product>(this.listProduct);

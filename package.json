@@ -10,7 +10,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^16.0.0",
+    "@angular/animations": "^16.1.2",
     "@angular/cdk": "^16.0.4",
     "@angular/common": "^16.0.0",
     "@angular/compiler": "^16.0.0",
@@ -27,6 +27,7 @@
     "firebase": "^9.9.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.7.0",
+    "ngx-toastr": "^15.2.0",
     "rxjs": "~7.8.0",
     "save": "^2.9.0",
     "tslib": "^2.3.0",

@@ -3,7 +3,6 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {UserNavbarComponent} from './compoment/layout/user/user-navbar/user-navbar.component';
 import {UserFooterComponent} from './compoment/layout/user/user-footer/user-footer.component';
 import {UserHomeComponent} from './compoment/pages/user/user-home/user-home.component';
@@ -32,24 +31,29 @@ import {CreateCategoryComponent} from './compoment/contents/category/create-cate
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
-import { UpdateCategoryComponent } from './compoment/contents/category/update-category/update-category.component';
-import { DeleteCategoryComponent } from './compoment/contents/category/delete-category/delete-category.component';
-import { PageCategoryComponent } from './compoment/contents/category/page-category/page-category.component';
-import { UserIndexComponent } from './compoment/pages/user/user-index/user-index.component';
-import { AdminHomeComponent } from './compoment/pages/admin/admin-home/admin-home.component';
-import { AdminIndexComponent } from './compoment/pages/admin/admin-index/admin-index.component';
-import { AdminNavbarComponent } from './compoment/layout/admin/admin-navbar/admin-navbar.component';
-import { AdminFooterComponent } from './compoment/layout/admin/admin-footer/admin-footer.component';
-import { UploadFileComponent } from './compoment/upload/upload-file/upload-file.component';
-import { ErrorComponent } from './compoment/pages/error/error.component';
-import { ProfileComponent } from './compoment/pages/profile/profile.component';
+import {UpdateCategoryComponent} from './compoment/contents/category/update-category/update-category.component';
+import {DeleteCategoryComponent} from './compoment/contents/category/delete-category/delete-category.component';
+import {PageCategoryComponent} from './compoment/contents/category/page-category/page-category.component';
+import {UserIndexComponent} from './compoment/pages/user/user-index/user-index.component';
+import {AdminHomeComponent} from './compoment/pages/admin/admin-home/admin-home.component';
+import {AdminIndexComponent} from './compoment/pages/admin/admin-index/admin-index.component';
+import {AdminNavbarComponent} from './compoment/layout/admin/admin-navbar/admin-navbar.component';
+import {AdminFooterComponent} from './compoment/layout/admin/admin-footer/admin-footer.component';
+import {UploadFileComponent} from './compoment/upload/upload-file/upload-file.component';
+import {ErrorComponent} from './compoment/pages/error/error.component';
+import {ProfileComponent} from './compoment/pages/profile/profile.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-import { ListProductComponent } from './compoment/contents/Product/list-product/list-product.component';
-import { CreateProductComponent } from './compoment/contents/Product/create-product/create-product.component';
+import {ListProductComponent} from './compoment/contents/Product/list-product/list-product.component';
+import {CreateProductComponent} from './compoment/contents/Product/create-product/create-product.component';
 import {MatSelectModule} from "@angular/material/select";
-import { DeleteProductComponent } from './compoment/contents/Product/delete-product/delete-product.component';
-import { PageProductComponent } from './compoment/contents/Product/page-product/page-product.component';
-import { UpdateProductComponent } from './compoment/contents/Product/update-product/update-product.component';
+import {DeleteProductComponent} from './compoment/contents/Product/delete-product/delete-product.component';
+import {PageProductComponent} from './compoment/contents/Product/page-product/page-product.component';
+import {UpdateProductComponent} from './compoment/contents/Product/update-product/update-product.component';
+import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { NotifierComponent } from './compoment/notifier/notifier.component';
+
+
 
 @NgModule({
   declarations: [
@@ -84,12 +88,13 @@ import { UpdateProductComponent } from './compoment/contents/Product/update-prod
     DeleteProductComponent,
     PageProductComponent,
     UpdateProductComponent,
+    NotifierComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     MatIconModule,
     MatInputModule,
     ReactiveFormsModule,
@@ -103,12 +108,20 @@ import { UpdateProductComponent } from './compoment/contents/Product/update-prod
     MatTableModule,
     MatPaginatorModule,
     MatProgressBarModule,
-    MatSelectModule
+    MatSelectModule,
+    ToastrModule.forRoot({
+      positionClass: "toast-bottom-right",
+      timeOut:3000,
+      easing:'ease-in',
+      easeTime:400,
+    }),
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
+
 })
 export class AppModule {
 }

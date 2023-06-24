@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {CategoryService} from "../../../../service/category.service";
 import {Category} from "../../../../model/Category";
+import {NotifierService} from "../../../../service/notifier.service";
 
 @Component({
   selector: 'app-create-category',
@@ -12,9 +13,11 @@ export class CreateCategoryComponent {
   category?: Category;
   status: string = 'Form Create Category'
 
-  constructor(private categoryService: CategoryService) {
-  }
+  constructor(private categoryService: CategoryService,
+              private toast:NotifierService,
 
+              ) {
+  }
   onUpload($event: string) {
     this.form.avatar = $event
   }
@@ -25,14 +28,14 @@ export class CreateCategoryComponent {
       this.form.avatar
     )
     if (this.form.avatar == undefined) {
-      this.status = "Avatar is required! Please choose upload avatar"
+      // this.status = "Avatar is required! Please choose upload avatar"
+      this.toast.ShowErrorToastr("Please select upload choose avatar file !","Avatar is required :")
     } else {
       this.categoryService.createCategoryService(this.category).subscribe(data => {
         if (data.message == 'name_exist') {
-          this.status = 'The name is existed! Please try again!'
+          this.toast.ShowErrorToastr("Please try again !","Category name already exists :")
         } else if (data.message == 'success') {
-          this.status = 'Create Category Success!'
-
+          this.toast.ShowErrorToastr("Success!","Create Category :")
         }
       })
     }

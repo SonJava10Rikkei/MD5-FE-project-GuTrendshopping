@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12" style="margin-top: 20px; margin-bottom: 20px">
       <mat-card style="margin: 0">
-        <mat-error class="alert alert-success">{{status}}</mat-error>
+        <mat-error style="text-align: center" class="alert alert-success matErrorFont">{{status}}</mat-error>
         <mat-dialog-content>
           <form class="form-angular" #f="ngForm" (ngSubmit)="f.form.valid && updateProduct()" novalidate>
 
@@ -42,7 +42,7 @@
                 <input type="number" name="price" #price="ngModel" [(ngModel)]="product.price" matInput
                        placeholder="Price" required
                        minlength="3" value="{{product.price}}">
-                <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-icon color="accent" matSuffix>monetization_on</mat-icon>
                 <mat-error *ngIf="price.hasError('required')" class="matErrorFont">
                   The price is required!
                 </mat-error>
@@ -61,7 +61,7 @@
                 <input type="number" name="quantity" #quantity="ngModel" [(ngModel)]="product.quantity" matInput
                        placeholder="Quantity" required
                        minlength="3" value="{{product.quantity}}">
-                <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-icon color="accent" matSuffix>library_add</mat-icon>
                 <mat-error *ngIf="quantity.hasError('required')" class="matErrorFont">
                   The quantity is required!
                 </mat-error>
@@ -85,7 +85,7 @@
                           placeholder="Description"
                           required
                           minlength="3" style="margin-top: 50px !important;"></textarea>
-                <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-icon color="accent" matSuffix>description</mat-icon>
                 <mat-error *ngIf="description.hasError('required')" class="matErrorFont">
                   The description is required!
                 </mat-error>
@@ -96,7 +96,7 @@
             </div>
             <!--                    END Description-->
 
-            <button type="submit" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">
+            <button type="submit" mat-raised-button color="primary" class="mat-button-toggle-group btn-outline-primary">
               Update Product
               <mat-icon color="accent" matSuffix>edit</mat-icon>
             </button>

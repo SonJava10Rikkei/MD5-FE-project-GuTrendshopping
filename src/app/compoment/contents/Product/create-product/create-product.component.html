@@ -4,7 +4,7 @@
       <p style="text-align: center; font-size: 20px;font-weight: 500; color: blue; margin-bottom: 20px">Create
         Product</p>
       <mat-error class="matErrorFont form-angular">
-        <marquee>{{status}}</marquee>
+        {{status}}
       </mat-error>
       <mat-card style="margin: 0">
         <mat-dialog-content class="mat-typography">
@@ -15,7 +15,7 @@
               <mat-form-field appearance="outline" class="col-12">
                 <mat-label>Name:</mat-label>
                 <input name="name" #name="ngModel" [(ngModel)]="form.name" matInput placeholder="Name" required
-                       minlength="3" maxlength="50" style="height: 20px !important;">
+                       minlength="3"  style="height: 20px !important;">
                 <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
                 <mat-error *ngIf="name.hasError('required')" class="matErrorFont">
                   The name is required!
@@ -44,7 +44,7 @@
                 <mat-label>Price:</mat-label>
                 <input type="number" name="price" #price="ngModel" [(ngModel)]="form.price" matInput placeholder="Price" required
                        minlength="3" style="height: 20px !important;">
-                <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-icon color="accent" matSuffix>monetization_on</mat-icon>
                 <mat-error *ngIf="price.hasError('required')" class="matErrorFont">
                   The price is required!
                 </mat-error>
@@ -53,6 +53,7 @@
                 </mat-error>
               </mat-form-field>
             </div>
+
             <!--                    END price-->
 
             <!--                    Quantity-->
@@ -61,7 +62,7 @@
                 <mat-label>Quantity:</mat-label>
                 <input type="number" name="quantity" #quantity="ngModel" [(ngModel)]="form.quantity" matInput placeholder="Quantity" required
                        minlength="3"  style="height: 20px !important;">
-                <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-icon color="accent" matSuffix>library_add</mat-icon>
                 <mat-error *ngIf="quantity.hasError('required')" class="matErrorFont">
                   The quantity is required!
                 </mat-error>
@@ -79,20 +80,19 @@
             <div class="col-12" style="margin-top: 15px">
               <mat-form-field appearance="outline" class="col-12">
                 <mat-label>Description:</mat-label>
-                <textarea name="description" #name="ngModel" [(ngModel)]="form.description" matInput placeholder="Description"
+                <textarea name="description" #description="ngModel" [(ngModel)]="form.description" matInput placeholder="Description"
                           required
                           minlength="3" style="margin-top: 50px !important;"></textarea>
-                <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
-                <mat-error *ngIf="name.hasError('required')" class="matErrorFont">
+                <mat-icon color="accent" matSuffix>description</mat-icon>
+                <mat-error *ngIf="description.hasError('required')" class="matErrorFont">
                   The description is required!
                 </mat-error>
-                <mat-error *ngIf="name.hasError('minlength')" class="matErrorFont">
+                <mat-error *ngIf="description.hasError('minlength')" class="matErrorFont">
                   <marquee>The name must at least 3 character!</marquee>
                 </mat-error>
               </mat-form-field>
             </div>
             <!--                    END Description-->
-
 
             <div class="col-12" style="margin-top: 0">
               <button class="btn btn-primary w-100" type="submit" style="margin-bottom: 8px; margin-top: 8px">

@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {Category} from "../../../../model/Category";
 import {CategoryService} from "../../../../service/category.service";
+import {NotifierService} from "../../../../service/notifier.service";
 
 @Component({
   selector: 'app-update-category',
@@ -10,12 +11,13 @@ import {CategoryService} from "../../../../service/category.service";
   styleUrls: ['./update-category.component.scss']
 })
 export class UpdateCategoryComponent implements OnInit {
-  status = 'Form Update Category';
+  status = 'FORM UPDATE CATEGORY';
 
   // @ts-ignore
   category = new Category();
 
   constructor(private actRouter: ActivatedRoute,
+              private toast:NotifierService,
               private categoryService: CategoryService,
               @Inject(MAT_DIALOG_DATA)
               public data: any) {
@@ -26,11 +28,11 @@ export class UpdateCategoryComponent implements OnInit {
     this.categoryService.updateCategory(this.category?.id, this.category).subscribe(data =>{
       // console.log('data UPDATE ========================>', data)
       if(data.message=='no_change'){
-        this.status = 'CATEGORY DOESN\'T CHANGE?'
+        this.toast.ShowWarningToastr('CATEGORY DOESN\'T CHANGE ?','Edit Category : ')
       } else if(data.message == 'name_existed'){
-        this.status ='CATEGORY NAME EXISTED'
+        this.toast.ShowErrorToastr('CATEGORY NAME EXISTED !','Edit Category :')
       } else if(data.message == 'update_success'){
-        this.status = 'EDIT SUCCESS!!!'
+        this.toast.ShowSuccessToastr('SUCCESS!!!','Edit Category :')
       }
     })
   }

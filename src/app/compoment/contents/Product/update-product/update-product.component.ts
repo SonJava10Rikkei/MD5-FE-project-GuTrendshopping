@@ -6,6 +6,7 @@ import {ProductService} from "../../../../service/product.service";
 import {Category} from "../../../../model/Category";
 import {CategoryService} from "../../../../service/category.service";
 import {FormControl, Validators} from "@angular/forms";
+import {NotifierService} from "../../../../service/notifier.service";
 
 @Component({
   selector: 'app-update-product',
@@ -14,7 +15,7 @@ import {FormControl, Validators} from "@angular/forms";
 })
 export class UpdateProductComponent implements OnInit {
 
-  status = 'Form Update Product';
+  status = 'FORM UPDATE PRODUCT';
   listCategory: Category[] = [];
   // @ts-ignore
   product = new Product();
@@ -23,6 +24,7 @@ export class UpdateProductComponent implements OnInit {
   ])
 
   constructor(private actRouter: ActivatedRoute,
+              private toast:NotifierService,
               private categoryService: CategoryService,
               private productService: ProductService,
               @Inject(MAT_DIALOG_DATA)
@@ -35,11 +37,12 @@ export class UpdateProductComponent implements OnInit {
     this.productService.updateProductService(this.product?.id, this.product).subscribe(data => {
       // console.log('data UPDATE ========================>', data)
       if (data.message == 'no_change') {
-        this.status = 'PRODUCT DOESN\'T CHANGE?'
+        this.toast.ShowWarningToastr('PRODUCT DOESN\'T CHANGE ?','Edit Product : ')
       } else if (data.message == 'name_existed') {
-        this.status = 'PRODUCT NAME EXISTED'
+        this.toast.ShowErrorToastr('PRODUCT NAME EXISTED !','Edit Product :')
       } else if (data.message == 'update_success') {
-        this.status = 'EDIT SUCCESS!!!'
+        this.toast.ShowSuccessToastr('SUCCESS!!!','Edit Product :')
+
       }
     })
   }
@@ -59,6 +62,4 @@ export class UpdateProductComponent implements OnInit {
       // console.log('listCategory --->', this.listCategory)
     })
   }
-
-
 }
