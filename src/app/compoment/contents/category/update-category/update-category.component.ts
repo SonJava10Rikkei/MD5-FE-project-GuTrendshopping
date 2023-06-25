@@ -25,7 +25,7 @@ export class UpdateCategoryComponent implements OnInit {
 
   updateCategory() {
     // @ts-ignore
-    this.categoryService.updateCategory(this.category?.id, this.category).subscribe(data =>{
+    this.categoryService.updateCategoryService(this.category?.id, this.category).subscribe(data =>{
       // console.log('data UPDATE ========================>', data)
       if(data.message=='no_change'){
         this.toast.ShowWarningToastr('CATEGORY DOESN\'T CHANGE ?','Edit Category : ')
@@ -43,7 +43,7 @@ export class UpdateCategoryComponent implements OnInit {
 
   ngOnInit(): void {
     // console.log('data tu inject --->', this.data.dataKey)
-    this.categoryService.getCategoryById(this.data.dataKey).subscribe(data =>{
+    this.categoryService.getCategoryDetailByIdService(this.data.dataKey).subscribe(data =>{
       this.category = data;
       // console.log('category OLD -------------------- --->', this.category)
     })

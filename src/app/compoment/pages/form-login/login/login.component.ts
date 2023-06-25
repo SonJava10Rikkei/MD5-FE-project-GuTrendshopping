@@ -3,6 +3,7 @@ import {AuthService} from "../../../../service/auth.service";
 import {TokenService} from "../../../../service/token.service";
 import {Router} from "@angular/router";
 import {SignInForm} from "../../../../model/SignInForm";
+import {NotifierService} from "../../../../service/notifier.service";
 
 @Component({
   selector: 'app-login',
@@ -14,9 +15,10 @@ export class LoginComponent {
   form:any = {};
   signInForm?: SignInForm;
   status = 'Please fill in the form to login!';
-  statusError = '___________________________________________';
+  statusError = 'Welcome to GuTrend !';
   constructor(private authService: AuthService,
               private tokenService: TokenService,
+              private toast:NotifierService,
               private router: Router) {
   }
   login() {
@@ -27,7 +29,7 @@ export class LoginComponent {
     this.authService.signIn(this.signInForm).subscribe(data =>{
       // @ts-ignore
       if(data.status==202){
-        this.statusError = 'Login failed! Please check your account !'
+        this.toast.ShowErrorToastr('Please check your account !','Login failed :')
       } else {
         // @ts-ignore
         this.tokenService.setName(data.name);
@@ -38,9 +40,9 @@ export class LoginComponent {
         // @ts-ignore
         this.tokenService.setRole(data.roles);
         this.router.navigate(['']).then(()=>{
+          this.toast.ShowSuccessToastr('Success !','Login :')
           window.location.reload();
         })
-
       }
     })
   }

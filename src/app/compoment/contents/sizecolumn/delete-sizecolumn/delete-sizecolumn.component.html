@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 20px; margin-bottom: 20px">
+      <mat-card style="margin: 0">
+        <mat-error class="alert alert-primary">Are you sure you want to delete this item: {{sizeColumn?.name}}?</mat-error>
+        <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>
+          YES
+        </button>
+        <br>
+        <button mat-raised-button color="primary" [mat-dialog-close]="false" cdkFocusInitial>
+          NO
+        </button>
+      </mat-card>
+    </div>
+  </div>
+</div>

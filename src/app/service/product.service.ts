@@ -25,21 +25,21 @@ export class ProductService {
   getProductByIdService(id: number): Observable<any> {
     return this.httpClient.get(this.API_PRODUCT + '/' + id);
   }
-  createProductService(product:Product):Observable<any>{
-    return this.httpClient.post(this.API_PRODUCT+'/create', product)
-  }
-
-
-  updateProductService(id: number, product: Product): Observable<any> {
-    return this.httpClient.put(this.API_PRODUCT + '/' + id, product);
-  }
-
-  deleteProductService(id: number): Observable<any> {
-    return this.httpClient.delete(this.API_PRODUCT + '/' + id);
-  }
-
   getPageProductService(request: any): Observable<any> {
     const params = request;
     return this.httpClient.get(this.API_PRODUCT+'/page', {params})
   }
+  createProductService(product:Product):Observable<any>{
+    return this.httpClient.post(this.API_PRODUCT+'/create', product)
+  }
+
+  updateProductService(id: number, product: Product): Observable<any> {
+    return this.httpClient.put(this.API_PRODUCT + '/update/' + id, product);
+  }
+
+  deleteProductService(id: number): Observable<any> {
+    return this.httpClient.delete(this.API_PRODUCT + '/delete/' + id);
+  }
+
+
 }

@@ -14,6 +14,7 @@ import {ErrorComponent} from "./compoment/pages/error/error.component";
 import {ProfileComponent} from "./compoment/pages/profile/profile.component";
 import {ListProductComponent} from "./compoment/contents/Product/list-product/list-product.component";
 import {NotifierComponent} from "./compoment/notifier/notifier.component";
+import {ListSizecolumnComponent} from "./compoment/contents/sizecolumn/list-sizecolumn/list-sizecolumn.component";
 
 const routes: Routes = [
   {
@@ -33,14 +34,15 @@ const routes: Routes = [
   {
     path: 'admin', component: AdminIndexComponent, children: [
       {path: '', component: AdminHomeComponent},
-      {path: 'category', component: ListCategoryComponent},
+      {path: 'list-category', component: ListCategoryComponent},
       {path: 'input', component: DadInputComponent},
       {path: 'output', component: DadOutputComponent},
       {path: 'change-avatar', component: ChangeAvatarComponent},
       {path: 'error-404', component: ErrorComponent},
       {path: 'profile', component: ProfileComponent},
-      {path: 'list-product', component: ListProductComponent},
       {path: 'notifier', component: NotifierComponent},
+      {path: 'list-product', component: ListProductComponent},
+      {path: 'list-size', component: ListSizecolumnComponent},
 
 
     ]

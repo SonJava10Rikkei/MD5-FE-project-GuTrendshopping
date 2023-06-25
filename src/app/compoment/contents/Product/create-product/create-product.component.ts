@@ -26,7 +26,7 @@ export class CreateProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categoryService.getListService().subscribe(data => {
+    this.categoryService.getListCategoryService().subscribe(data => {
       this.listCategory = data;
       // console.log('listCategory --->', this.listCategory)
     })

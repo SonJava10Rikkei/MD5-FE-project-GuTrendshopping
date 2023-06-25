@@ -34,8 +34,8 @@ export class CreateCategoryComponent {
       this.categoryService.createCategoryService(this.category).subscribe(data => {
         if (data.message == 'name_exist') {
           this.toast.ShowErrorToastr("Please try again !","Category name already exists :")
-        } else if (data.message == 'success') {
-          this.toast.ShowErrorToastr("Success!","Create Category :")
+        } else if (data.message == 'create_success') {
+          this.toast.ShowSuccessToastr("Success!","Create Category :")
         }
       })
     }

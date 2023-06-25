@@ -13,6 +13,8 @@ export class NotifierService {
       timeOut: 3000,
       easing: 'ease-in',
       easeTime: 400,
+      progressBar:true,
+      progressAnimation:'increasing',
     });
   }
 
@@ -22,6 +24,8 @@ export class NotifierService {
       timeOut: 3000,
       easing: 'ease-in',
       easeTime: 400,
+      progressBar:true,
+      progressAnimation:'decreasing',
     });
   }
 
@@ -31,6 +35,8 @@ export class NotifierService {
       timeOut: 3000,
       easing: 'ease-in',
       easeTime: 400,
+      progressBar:true,
+      progressAnimation:'decreasing',
     });
   }
 
@@ -40,6 +46,8 @@ export class NotifierService {
       timeOut: 3000,
       easing: 'ease-in',
       easeTime: 400,
+      progressBar:true,
+      progressAnimation:'increasing',
     });
   }
 }

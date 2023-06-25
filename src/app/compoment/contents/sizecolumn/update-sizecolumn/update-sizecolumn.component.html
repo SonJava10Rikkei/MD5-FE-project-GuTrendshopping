@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 20px; margin-bottom: 20px">
+      <mat-card style="margin: 0">
+        <mat-error style="text-align: center" class="alert alert-success matErrorFont">{{status}}</mat-error>
+        <form class="form-angular" #f="ngForm" (ngSubmit)="f.form.valid && updateSizeColumn()" novalidate>
+
+          <mat-form-field appearance="outline" style="width: 350px">
+            <mat-label>Name:</mat-label>
+            <input name="name" #name="ngModel" [(ngModel)]="sizeColumn.name" matInput placeholder="Name" required
+                   minlength="2" maxlength="50" value="{{sizeColumn.name}}">
+            <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-error *ngIf="name.hasError('required')">The name is required!</mat-error>
+            <mat-error *ngIf="name.hasError('minlength')">The name must at least 2 character!</mat-error>
+          </mat-form-field>
+          <br>
+
+          <div style=" display: flex; margin: 10px; justify-content: space-around">
+            <button type="submit" mat-raised-button color="primary" class="mat-button-toggle-group btn-outline-primary">
+              Update Size
+              <mat-icon color="accent" matSuffix>edit</mat-icon>
+            </button>
+
+            <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+          </div>
+
+        </form>
+
+      </mat-card>
+    </div>
+  </div>
+</div>

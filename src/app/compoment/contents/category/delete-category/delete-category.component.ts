@@ -21,7 +21,7 @@ export class DeleteCategoryComponent implements OnInit {
   ngOnInit(): void {
 
     // console.log("this.data inject", this.data.dataKey)
-    this.categoryService.getCategoryById(this.data.dataKey).subscribe(data => {
+    this.categoryService.getCategoryDetailByIdService(this.data.dataKey).subscribe(data => {
       this.category = data;
       // console.log("data delete -----> ", data)
     })

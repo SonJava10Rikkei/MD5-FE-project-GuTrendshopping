@@ -52,6 +52,11 @@ import {UpdateProductComponent} from './compoment/contents/Product/update-produc
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { NotifierComponent } from './compoment/notifier/notifier.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { ListSizecolumnComponent } from './compoment/contents/sizecolumn/list-sizecolumn/list-sizecolumn.component';
+import { CreateSizecolumnComponent } from './compoment/contents/sizecolumn/create-sizecolumn/create-sizecolumn.component';
+import { UpdateSizecolumnComponent } from './compoment/contents/sizecolumn/update-sizecolumn/update-sizecolumn.component';
+import { DeleteSizecolumnComponent } from './compoment/contents/sizecolumn/delete-sizecolumn/delete-sizecolumn.component';
 
 
 
@@ -89,6 +94,10 @@ import { NotifierComponent } from './compoment/notifier/notifier.component';
     PageProductComponent,
     UpdateProductComponent,
     NotifierComponent,
+    ListSizecolumnComponent,
+    CreateSizecolumnComponent,
+    UpdateSizecolumnComponent,
+    DeleteSizecolumnComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -111,10 +120,11 @@ import { NotifierComponent } from './compoment/notifier/notifier.component';
     MatSelectModule,
     ToastrModule.forRoot({
       positionClass: "toast-bottom-right",
-      timeOut:3000,
-      easing:'ease-in',
-      easeTime:400,
+      timeOut: 3000,
+      easing: 'ease-in',
+      easeTime: 400,
     }),
+    MatTooltipModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

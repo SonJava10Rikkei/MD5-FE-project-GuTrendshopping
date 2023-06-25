@@ -17,7 +17,7 @@ export class PageCategoryComponent implements OnInit {
   }
 
   getPageRequest(request: any) {
-    this.categoryService.getPageCategory(request).subscribe(data => {
+    this.categoryService.getPageCategoryService(request).subscribe(data => {
       console.log('data -------->', data)
 
       this.listCategory = data['content'];

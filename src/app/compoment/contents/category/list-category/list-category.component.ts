@@ -40,7 +40,7 @@ export class ListCategoryComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result || result == undefined) {
-        this.categoryService.getListService().subscribe(data => {
+        this.categoryService.getListCategoryService().subscribe(data => {
           this.listCategory = data;
           this.dataSource = new MatTableDataSource<Category>(this.listCategory);
           this.dataSource.paginator = this.paginator;
@@ -57,7 +57,7 @@ export class ListCategoryComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result || result == undefined) {
-        this.categoryService.getListService().subscribe(data => {
+        this.categoryService.getListCategoryService().subscribe(data => {
           this.listCategory = data;
           this.dataSource = new MatTableDataSource<Category>(this.listCategory);
           this.dataSource.paginator = this.paginator;
@@ -75,10 +75,10 @@ export class ListCategoryComponent implements OnInit {
     // console.log('id --------------> ', id)
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.categoryService.deleteCategory(id).subscribe(data => {
+        this.categoryService.deleteCategoryService(id).subscribe(data => {
           // this.status = "Delete Success";
           this.toast.ShowSuccessToastr('Success','Delete Category :')
-          this.categoryService.getListService().subscribe(data => {
+          this.categoryService.getListCategoryService().subscribe(data => {
             this.listCategory = data;
             this.dataSource = new MatTableDataSource<Category>(this.listCategory);
             this.dataSource.paginator = this.paginator;
@@ -94,7 +94,7 @@ export class ListCategoryComponent implements OnInit {
     if (this.tokenService.getToken()) {
       this.checkUserLogin = true;
     }
-    this.categoryService.getListService().subscribe(data => {
+    this.categoryService.getListCategoryService().subscribe(data => {
       this.listCategory = data;
       this.dataSource = new MatTableDataSource<Category>(this.listCategory);
       this.dataSource.paginator = this.paginator;

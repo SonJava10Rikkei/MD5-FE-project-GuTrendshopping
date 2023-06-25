@@ -191,7 +191,6 @@
           <li>
             <hr class="dropdown-divider">
           </li>
-
 <!--          <li>-->
 <!--            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">-->
 <!--              <i class="bi bi-gear"></i>-->
@@ -203,16 +202,16 @@
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+            <a class="dropdown-item d-flex align-items-center" routerLink="/" >
               <i class="bi bi-question-circle"></i>
-              <span>Need Help?</span>
+              <span>Use page</span>
             </a>
           </li>
           <li>
             <hr class="dropdown-divider">
           </li>
 
-          <li>
+          <li style="cursor: pointer">
             <a class="dropdown-item d-flex align-items-center" (click)="logOut()">
               <i class="bi bi-box-arrow-right"></i>
               <span>Sign Out</span>
@@ -241,37 +240,37 @@
 
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-menu-button-wide"></i><span>Category</span><i class="bi bi-chevron-down ms-auto"></i>
+        <i class="bi bi-menu-button-wide"></i><span>Products</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li >
-          <a routerLink="/admin/category">
+          <a class="nav-links" routerLink="/admin/list-category">
             <i class="bi bi-circle"></i><span>List Category</span>
           </a>
         </li>
 
         <li>
-          <a href="components-accordion.html">
-            <i class="bi bi-circle"></i><span>Accordion</span>
+          <a class="nav-links" routerLink="/admin/list-size">
+            <i class="bi bi-circle"></i><span>List Size</span>
           </a>
         </li>
         <li>
-          <a href="components-badges.html">
-            <i class="bi bi-circle"></i><span>Badges</span>
+          <a class="nav-links" routerLink="/admin/list-product">
+            <i class="bi bi-circle"></i><span>List Product</span>
           </a>
         </li>
         <li>
-          <a href="components-breadcrumbs.html">
+          <a class="nav-links" href="components-breadcrumbs.html">
             <i class="bi bi-circle"></i><span>Breadcrumbs</span>
           </a>
         </li>
         <li>
-          <a href="components-buttons.html">
+          <a class="nav-links" href="components-buttons.html">
             <i class="bi bi-circle"></i><span>Buttons</span>
           </a>
         </li>
         <li>
-          <a href="components-cards.html">
+          <a class="nav-links" href="components-cards.html">
             <i class="bi bi-circle"></i><span>Cards</span>
           </a>
         </li>

@@ -57,7 +57,7 @@ export class UpdateProductComponent implements OnInit {
       this.product = data;
       // console.log('category OLD -------------------- --->', this.product)
     })
-    this.categoryService.getListService().subscribe(data => {
+    this.categoryService.getListCategoryService().subscribe(data => {
       this.listCategory = data;
       // console.log('listCategory --->', this.listCategory)
     })
