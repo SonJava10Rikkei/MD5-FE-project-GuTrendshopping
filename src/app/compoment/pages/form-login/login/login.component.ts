@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../../service/auth.service";
 import {TokenService} from "../../../../service/token.service";
 import {Router} from "@angular/router";
@@ -10,7 +10,7 @@ import {NotifierService} from "../../../../service/notifier.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   hide = true;
   form:any = {};
   signInForm?: SignInForm;
@@ -39,11 +39,20 @@ export class LoginComponent {
         this.tokenService.setToken(data.token);
         // @ts-ignore
         this.tokenService.setRole(data.roles);
+        this.toast.ShowSuccessToastr('Success !','Login :')
+        this.authService.setRegister(true);
         this.router.navigate(['']).then(()=>{
-          this.toast.ShowSuccessToastr('Success !','Login :')
           window.location.reload();
         })
       }
     })
+  }
+
+  ngOnInit(): void {
+    // if(this.authService.getRigister()){
+      // this.toast.ShowSuccessToastr('Success !','Rigister :')
+    // }
+
+
   }
 }

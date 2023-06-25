@@ -57,6 +57,8 @@ import { ListSizecolumnComponent } from './compoment/contents/sizecolumn/list-si
 import { CreateSizecolumnComponent } from './compoment/contents/sizecolumn/create-sizecolumn/create-sizecolumn.component';
 import { UpdateSizecolumnComponent } from './compoment/contents/sizecolumn/update-sizecolumn/update-sizecolumn.component';
 import { DeleteSizecolumnComponent } from './compoment/contents/sizecolumn/delete-sizecolumn/delete-sizecolumn.component';
+import {CheckLoginGuard} from "./service/CheckLoginGuard";
+import {CheckRoll} from "./service/CheckRoll";
 
 
 
@@ -127,7 +129,9 @@ import { DeleteSizecolumnComponent } from './compoment/contents/sizecolumn/delet
     MatTooltipModule,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    CheckLoginGuard,
+    CheckRoll
   ],
   bootstrap: [AppComponent],
 

@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../../../../service/auth.service";
+import {NotifierService} from "../../../../service/notifier.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-user-home',
@@ -6,8 +9,17 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./user-home.component.scss']
 })
 export class UserHomeComponent implements OnInit{
-  ngOnInit(): void {
 
+  constructor(private authService:AuthService,
+              private notifier:ToastrService
+              ) {
+  }
+  ngOnInit(): void {
+    // if(this.authService.getRigister()){
+    //   this.notifier.success('Success !','Login :',{
+    //     timeOut:10000
+    //   })
+    // }
 
   }
 

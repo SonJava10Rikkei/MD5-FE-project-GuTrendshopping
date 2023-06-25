@@ -23,7 +23,7 @@ export class RegisterComponent {
   hide = true;
 
   constructor(private authService: AuthService,
-              private notifier:NotifierService,
+              private notifier: NotifierService,
               private router: Router) {
   }
 
@@ -39,13 +39,14 @@ export class RegisterComponent {
     )
     this.authService.signUp(this.signUpForm).subscribe(data => {
       if (data.message == 'no_user') {
-        this.notifier.ShowErrorToastr('The username is existed! Please try again!','Register username:')
+        this.notifier.ShowErrorToastr('The username is existed! Please try again!', 'Register username:')
       } else if (data.message == 'no_email') {
-        this.notifier.ShowErrorToastr('The email is existed! Please try again!','Register email:')
+        this.notifier.ShowErrorToastr('The email is existed! Please try again!', 'Register email:')
 
       } else if (data.message == 'yes') {
         this.status = "Create account success!"
-        this.notifier.ShowSuccessToastr('Hello !!!','Register success:')
+        this.notifier.ShowSuccessToastr('Hello !!!', 'Register success:')
+        this.authService.setRegister(true);
         this.router.navigate(['/login'])
       }
     })

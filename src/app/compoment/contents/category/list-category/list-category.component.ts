@@ -21,6 +21,8 @@ import {NotifierService} from "../../../../service/notifier.service";
 })
 export class ListCategoryComponent implements OnInit {
   checkUserLogin = false;
+  checkUserAdmin = false;
+
   status: string = "";
   listCategory: Category[] = [];
   displayedColumns: string[] = ['position', 'id', 'name', 'avatar', 'edit', 'delete'];
@@ -91,6 +93,13 @@ export class ListCategoryComponent implements OnInit {
   // phan trang
   @ViewChild(MatPaginator) paginator?: MatPaginator;
   ngOnInit(): void {
+    if(JSON.stringify(this.tokenService.getRole())==JSON.stringify(['ADMIN'])){
+      this.checkUserAdmin = true;
+
+
+    }
+
+
     if (this.tokenService.getToken()) {
       this.checkUserLogin = true;
     }

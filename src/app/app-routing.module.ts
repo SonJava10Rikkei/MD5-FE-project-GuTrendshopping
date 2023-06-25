@@ -15,13 +15,15 @@ import {ProfileComponent} from "./compoment/pages/profile/profile.component";
 import {ListProductComponent} from "./compoment/contents/Product/list-product/list-product.component";
 import {NotifierComponent} from "./compoment/notifier/notifier.component";
 import {ListSizecolumnComponent} from "./compoment/contents/sizecolumn/list-sizecolumn/list-sizecolumn.component";
+import {CheckLoginGuard} from "./service/CheckLoginGuard";
+import {CheckRoll} from "./service/CheckRoll";
 
 const routes: Routes = [
   {
     path: '', component: UserIndexComponent, children: [
       {path: '', component: UserHomeComponent},
-      {path: 'register', component: RegisterComponent},
-      {path: 'login', component: LoginComponent},
+      {path: 'register', component: RegisterComponent, canActivate:[CheckLoginGuard]},
+      {path: 'login', component: LoginComponent, canActivate:[CheckLoginGuard]},
       {path: 'input', component: DadInputComponent},
       {path: 'output', component: DadOutputComponent},
       {path: 'change-avatar', component: ChangeAvatarComponent},
@@ -32,17 +34,17 @@ const routes: Routes = [
   },
 
   {
-    path: 'admin', component: AdminIndexComponent, children: [
-      {path: '', component: AdminHomeComponent},
-      {path: 'list-category', component: ListCategoryComponent},
-      {path: 'input', component: DadInputComponent},
-      {path: 'output', component: DadOutputComponent},
-      {path: 'change-avatar', component: ChangeAvatarComponent},
-      {path: 'error-404', component: ErrorComponent},
-      {path: 'profile', component: ProfileComponent},
-      {path: 'notifier', component: NotifierComponent},
-      {path: 'list-product', component: ListProductComponent},
-      {path: 'list-size', component: ListSizecolumnComponent},
+    path: 'admin', component: AdminIndexComponent, canActivate:[CheckRoll],children: [
+      {path: '', component: AdminHomeComponent, canActivate:[CheckRoll]},
+      {path: 'list-category', component: ListCategoryComponent, canActivate:[CheckRoll]},
+      {path: 'input', component: DadInputComponent, canActivate:[CheckRoll]},
+      {path: 'output', component: DadOutputComponent, canActivate:[CheckRoll]},
+      {path: 'change-avatar', component: ChangeAvatarComponent, canActivate:[CheckRoll]},
+      {path: 'error-404', component: ErrorComponent, canActivate:[CheckRoll]},
+      {path: 'profile', component: ProfileComponent, canActivate:[CheckRoll]},
+      {path: 'notifier', component: NotifierComponent, canActivate:[CheckRoll]},
+      {path: 'list-product', component: ListProductComponent, canActivate:[CheckRoll]},
+      {path: 'list-size', component: ListSizecolumnComponent, canActivate:[CheckRoll]},
 
 
     ]
