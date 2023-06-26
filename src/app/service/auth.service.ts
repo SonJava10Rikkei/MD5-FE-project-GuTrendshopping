@@ -6,6 +6,8 @@ import {Observable} from "rxjs";
 import {JwtResponse} from "../model/JwtResponse";
 import {SignInForm} from "../model/SignInForm";
 import {ChangeAvatar} from "../model/ChangeAvatar";
+import {Profile} from "../model/profile";
+import {UserManage} from "../model/UserManage";
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +17,33 @@ export class AuthService {
   private API_SIGNUP = environment.API_LOCAL + 'signup';
   private API_SIGNIN = environment.API_LOCAL + 'signin';
   private API_UPDATE_AVATAR = environment.API_LOCAL + 'change-avatar'
+  private API_UPDATE_PROFILE = environment.API_LOCAL + 'update-user'
+  private API_GET_LIST_USER = environment.API_LOCAL + 'list-user'
+  private API_USER_DETAIL_BY_ID = environment.API_LOCAL + 'detail-user'
+  private API_CHANGE_ROLES_USER = environment.API_LOCAL + 'change-role'
+
 
   //API SERVER
   // private API_SIGNUP = environment.API_SERVER+'signup';
   // private API_SIGNIN = environment.API_SERVER+'signin';
   // private API_UPDATE_AVATAR = environment.API_SERVER + 'change-avatar';
   constructor(private httpClient: HttpClient,
-
   ) {
+  }
+
+  getListUser(userManage: UserManage): Observable<any> {
+    // @ts-ignore
+    return this.httpClient.get<any>(this.API_GET_LIST_USER, userManage);
+  }
+
+  getUserDetailByIdService(id: number) {
+    return this.httpClient.get(this.API_USER_DETAIL_BY_ID + '/' + id);
+  }
+
+
+  putChangeRoleUserService(id: number): Observable<any> {
+    // @ts-ignore
+    return this.httpClient.put<any>(this.API_CHANGE_ROLES_USER + '/' + id);
   }
 
   signUp(signUpForm: SignUpForm): Observable<any> {
@@ -36,6 +57,10 @@ export class AuthService {
 
   editAvatar(changeAvatar: ChangeAvatar): Observable<any> {
     return this.httpClient.put<any>(this.API_UPDATE_AVATAR, changeAvatar);
+  }
+
+  updateProfile(profile: Profile): Observable<any> {
+    return this.httpClient.put<any>(this.API_UPDATE_PROFILE, profile)
   }
 
   checkRegister = false;

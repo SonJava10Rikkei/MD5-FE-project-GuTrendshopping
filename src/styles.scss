@@ -1,4 +1,5 @@
 @use '@angular/material' as mat;
+
 @include mat.core();
 $MD5-FE-primary: mat.define-palette(mat.$indigo-palette);
 $MD5-FE-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
@@ -466,7 +467,7 @@ h6 {
   list-style: none;
 }
 
-.header-nav>ul {
+.header-nav > ul {
   margin: 0;
   padding: 0;
 }
@@ -483,7 +484,8 @@ h6 {
 }
 
 .header-nav .nav-profile img {
-  max-height: 36px;
+  height: 31px;
+  width: 31px;
 }
 
 .header-nav .nav-profile span {
@@ -895,7 +897,7 @@ h6 {
 }
 
 /* News & Updates */
-.dashboard .news .post-item+.post-item {
+.dashboard .news .post-item + .post-item {
   margin-top: 15px;
 }
 
@@ -1243,21 +1245,25 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+
 /*--------------------------------------------------------------
 # new Custom
 --------------------------------------------------------------*/
-.matErrorFont{
+.matErrorFont {
   font-size: 14px;
   font-style: oblique;
 }
-.form-angular{
+
+.form-angular {
   text-align: center;
 }
-.mat-success{
+
+.mat-success {
   color: white;
   background-color: green;
 }
-.mat-danger{
+
+.mat-danger {
   color: white;
   background-color: red;
 }

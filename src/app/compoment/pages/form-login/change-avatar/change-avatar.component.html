@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-12" style="margin-top: 70px; margin-bottom: 20px">
+    <div >
       <mat-card style="margin: 0">
-        <mat-error class="alert alert-primary form-angular">{{status}}</mat-error>
+
         <form class="form-angular" #f="ngForm" (ngSubmit)="f.form.valid && updateAvatar()" novalidate>
           <app-upload-avatar (giveURLtoCreate)="onUpload($event)"></app-upload-avatar>
           <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Update Avatar

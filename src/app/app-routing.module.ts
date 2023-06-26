@@ -14,9 +14,10 @@ import {ErrorComponent} from "./compoment/pages/error/error.component";
 import {ProfileComponent} from "./compoment/pages/profile/profile.component";
 import {ListProductComponent} from "./compoment/contents/Product/list-product/list-product.component";
 import {NotifierComponent} from "./compoment/notifier/notifier.component";
-import {ListSizecolumnComponent} from "./compoment/contents/sizecolumn/list-sizecolumn/list-sizecolumn.component";
 import {CheckLoginGuard} from "./service/CheckLoginGuard";
 import {CheckRoll} from "./service/CheckRoll";
+import {ListUserComponent} from "./compoment/contents/UserManage/list-user/list-user.component";
+
 
 const routes: Routes = [
   {
@@ -44,8 +45,7 @@ const routes: Routes = [
       {path: 'profile', component: ProfileComponent, canActivate:[CheckRoll]},
       {path: 'notifier', component: NotifierComponent, canActivate:[CheckRoll]},
       {path: 'list-product', component: ListProductComponent, canActivate:[CheckRoll]},
-      {path: 'list-size', component: ListSizecolumnComponent, canActivate:[CheckRoll]},
-
+      {path: 'list-user', component: ListUserComponent, canActivate:[CheckRoll]},
 
     ]
   }

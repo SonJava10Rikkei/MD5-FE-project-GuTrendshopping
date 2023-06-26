@@ -96,9 +96,7 @@ export class ListCategoryComponent implements OnInit {
     if(JSON.stringify(this.tokenService.getRole())==JSON.stringify(['ADMIN'])){
       this.checkUserAdmin = true;
 
-
     }
-
 
     if (this.tokenService.getToken()) {
       this.checkUserLogin = true;

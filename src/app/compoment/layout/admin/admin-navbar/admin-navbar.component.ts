@@ -16,6 +16,7 @@ export class AdminNavbarComponent implements OnInit{
   ngOnInit(): void {
     adminSidebar();
 
+
     if (this.tokenService.getToken()) {
       this.name = this.tokenService.getName();
       this.avatar = this.tokenService.getAvatar();

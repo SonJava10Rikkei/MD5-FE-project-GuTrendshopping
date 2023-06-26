@@ -16,37 +16,37 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link nav-links" aria-current="page" routerLink="/">HOME</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link nav-links" routerLink="shop">SHOP</a>
           </li>
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                aria-expanded="false">
-              Dropdown
+              Categories
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item  nav-links" href="#">Action</a></li>
+              <li><a class="dropdown-item nav-links" href="#">Another action</a></li>
               <li>
-                <hr class="dropdown-divider">
+                <hr class="dropdown-divider nav-links">
               </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item nav-links" href="#">Something else here</a></li>
             </ul>
           </li>
 
           <!--          @input-->
-          <li class="nav-item">
-            <a class="nav-link" routerLink="input">@Input</a>
-          </li>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" routerLink="input">@Input</a>-->
+<!--          </li>-->
 
-          <!--          @output-->
-          <li class="nav-item">
-            <a class="nav-link" routerLink="output">@Output</a>
-          </li>
+<!--          &lt;!&ndash;          @output&ndash;&gt;-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" routerLink="output">@Output</a>-->
+<!--          </li>-->
 
         </ul>
       </div>
@@ -73,7 +73,7 @@
       <li class="nav-item dropdown">
         <!-- Start Notification Icon -->
         <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-          <i class="bi bi-bell"></i>
+          <i class="bi bi-heart"></i>
           <span class="badge bg-primary badge-number">4</span>
         </a><!-- End Notification Icon -->
 
@@ -241,7 +241,7 @@
             <hr class="dropdown-divider">
           </li>
 
-          <li>
+          <li *ngIf="checkUserAdminPm">
             <a class="dropdown-item d-flex align-items-center" href="/admin">
               <i class="bi bi-gear"></i>
               <span>Page Admin</span>

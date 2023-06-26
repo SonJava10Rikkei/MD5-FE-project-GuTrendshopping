@@ -59,6 +59,11 @@ import { UpdateSizecolumnComponent } from './compoment/contents/sizecolumn/updat
 import { DeleteSizecolumnComponent } from './compoment/contents/sizecolumn/delete-sizecolumn/delete-sizecolumn.component';
 import {CheckLoginGuard} from "./service/CheckLoginGuard";
 import {CheckRoll} from "./service/CheckRoll";
+import { ListUserComponent } from './compoment/contents/UserManage/list-user/list-user.component';
+import {CdkTableModule} from "@angular/cdk/table";
+import { ChangeRoleComponent } from './compoment/contents/UserManage/change-role/change-role.component';
+import { BanUserComponent } from './compoment/contents/UserManage/ban-user/ban-user.component';
+
 
 
 
@@ -100,34 +105,39 @@ import {CheckRoll} from "./service/CheckRoll";
     CreateSizecolumnComponent,
     UpdateSizecolumnComponent,
     DeleteSizecolumnComponent,
+    ListUserComponent,
+    ChangeRoleComponent,
+    BanUserComponent,
+
   ],
-  imports: [
-    BrowserAnimationsModule,
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    MatIconModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatDialogModule,
-    FormsModule,
-    MatCardModule,
-    MatButtonModule,
-    AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    MatProgressSpinnerModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatSelectModule,
-    ToastrModule.forRoot({
-      positionClass: "toast-bottom-right",
-      timeOut: 3000,
-      easing: 'ease-in',
-      easeTime: 400,
-    }),
-    MatTooltipModule,
-  ],
+    imports: [
+        BrowserAnimationsModule,
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        MatIconModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatDialogModule,
+        FormsModule,
+        MatCardModule,
+        MatButtonModule,
+        AngularFireStorageModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        MatProgressSpinnerModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatProgressBarModule,
+        MatSelectModule,
+        ToastrModule.forRoot({
+            positionClass: "toast-bottom-right",
+            timeOut: 3000,
+            easing: 'ease-in',
+            easeTime: 400,
+        }),
+        MatTooltipModule,
+        CdkTableModule,
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     CheckLoginGuard,
