@@ -10,26 +10,31 @@ import {NotifierService} from "../../../../service/notifier.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   hide = true;
-  form:any = {};
+  form: any = {};
   signInForm?: SignInForm;
   status = 'Please fill in the form to login!';
   statusError = 'Welcome to GuTrend !';
+
   constructor(private authService: AuthService,
               private tokenService: TokenService,
-              private toast:NotifierService,
+              private toast: NotifierService,
               private router: Router) {
   }
+
   login() {
     this.signInForm = new SignInForm(
       this.form.username,
       this.form.password
     )
-    this.authService.signIn(this.signInForm).subscribe(data =>{
+    this.authService.signIn(this.signInForm).subscribe(data => {
       // @ts-ignore
-      if(data.status==202){
-        this.toast.ShowErrorToastr('Please check your account !','Login failed :')
+      if (data.status == 202) {
+        this.toast.ShowErrorToastr('Please check your account !', 'Login failed :')
+      } // @ts-ignore
+      if (data.status == 401) {
+        this.toast.ShowErrorToastr('You do not have access !', 'Login failed :')
       } else {
         // @ts-ignore
         this.tokenService.setName(data.name);
@@ -39,9 +44,9 @@ export class LoginComponent implements OnInit{
         this.tokenService.setToken(data.token);
         // @ts-ignore
         this.tokenService.setRole(data.roles);
-        this.toast.ShowSuccessToastr('Success !','Login :')
+        this.toast.ShowSuccessToastr('Success !', 'Login :')
         this.authService.setRegister(true);
-        this.router.navigate(['']).then(()=>{
+        this.router.navigate(['']).then(() => {
           window.location.reload();
         })
       }
@@ -50,7 +55,7 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
     // if(this.authService.getRigister()){
-      // this.toast.ShowSuccessToastr('Success !','Rigister :')
+    // this.toast.ShowSuccessToastr('Success !','Rigister :')
     // }
 
 
