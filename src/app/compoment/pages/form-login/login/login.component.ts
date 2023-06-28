@@ -29,11 +29,13 @@ export class LoginComponent implements OnInit {
       this.form.password
     )
     this.authService.signIn(this.signInForm).subscribe(data => {
+
       // @ts-ignore
       if (data.status == 202) {
-        this.toast.ShowErrorToastr('Please check your account !', 'Login failed :')
-      } // @ts-ignore
-      if (data.status == 401) {
+        this.toast.ShowWarningToastr('Please check your account !', 'Login failed :')
+      }
+      // @ts-ignore
+      else if (data.status == 401) {
         this.toast.ShowErrorToastr('You do not have access !', 'Login failed :')
       } else {
         // @ts-ignore

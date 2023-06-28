@@ -1,1 +1,16 @@
-<p>ban-user works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 20px; margin-bottom: 20px">
+      <mat-card style="margin: 0">
+        <mat-error class="alert alert-primary">Are you sure to {{userManage?.status==false?"BLOCK":"UNLOCK"}} this user: {{userManage?.email}}?</mat-error>
+        <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>
+          YES
+        </button>
+        <br>
+        <button mat-raised-button color="primary" [mat-dialog-close]="false" cdkFocusInitial>
+          NO
+        </button>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -14,6 +14,7 @@ import {UserManage} from "../model/UserManage";
 })
 export class AuthService {
   //API LOCAL
+  private API_AUTHCONTROLLER = environment.API_LOCAL;
   private API_SIGNUP = environment.API_LOCAL + 'signup';
   private API_SIGNIN = environment.API_LOCAL + 'signin';
   private API_UPDATE_AVATAR = environment.API_LOCAL + 'change-avatar'
@@ -41,11 +42,6 @@ export class AuthService {
   }
 
 
-  putChangeRoleUserService(id: number): Observable<any> {
-    // @ts-ignore
-    return this.httpClient.put<any>(this.API_CHANGE_ROLES_USER + '/' + id);
-  }
-
   signUp(signUpForm: SignUpForm): Observable<any> {
     // console.log('goi service --->', signUpForm)
     return this.httpClient.post<any>(this.API_SIGNUP, signUpForm);
@@ -57,6 +53,16 @@ export class AuthService {
 
   editAvatar(changeAvatar: ChangeAvatar): Observable<any> {
     return this.httpClient.put<any>(this.API_UPDATE_AVATAR, changeAvatar);
+  }
+
+  putChangeRoleUserService(id: number): Observable<any> {
+    // @ts-ignore
+    return this.httpClient.put<any>(this.API_AUTHCONTROLLER + 'change-role/' + id);
+  }
+
+  putBlockUser(id: number): Observable<any> {
+    // @ts-ignore
+    return this.httpClient.put<any>(this.API_AUTHCONTROLLER + 'block-user/' + id)
   }
 
   updateProfile(profile: Profile): Observable<any> {
