@@ -45,6 +45,7 @@ export class ListUserComponent implements OnInit {
           if (data.message == "can't_change_admin_role") {
             this.toast.ShowErrorToastr('Can\'t change admin role !!!', 'Change Roles :')
           } else {
+
             this.toast.ShowSuccessToastr('Success', 'Change Roles :')
             // @ts-ignore
             this.authService.getListUser().subscribe(data => {

@@ -1,7 +1,7 @@
 export function userNarbar() {
 
   (function () {
-    console.log("funciton test")
+    // console.log("funciton test")
 
 // narbar active link
     const links = document.querySelectorAll('.nav-links');
